@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изображения</title>
+</head>
+<body>
+<section class="center">
+    <h1>Изображения</h1>
+
+    <h2>Элемент <code>img</code></h2>
+
+    <p>Элемент <code>img</code> внедряет изображение в текущий документ в месте определения элемента. Элемент
+        <code>img</code> не имеет содержимого — он замещается на ходу изображением, указанным в атрибуте
+        <code>src</code>.</p>
+		<figure style="text-align: center;">
+			<img src="redcat.jpg" alt="Изображение 1">
+		</figure>
+
+    <h2>Альтернативный текст</h2>
+    <p>Атрибут <code>alt</code> предоставляет краткое описание изображения. Он содержит альтернативный текст, который
+        отображается, если изображение не может быть выведено. Пользовательские агенты должны отображать альтернативный
+        текст, если они не поддерживают изображения, или сконфигурированы так, чтобы не показывать изображения (отключен
+        показ изображений).</p>
+		<figure style="text-align: center;">
+			<img src="images/1.jpgg" alt="рыжий кот">
+		</figure>
+
+    <h2>Размеры изображения</h2>
+    <p>Атрибуты <code>width</code> и <code>height</code> задают размеры области изображения. Если оба атрибута не
+        заданы, размер изображения будет определен после его полной загрузки, после чего размеры области будут изменены
+        для размещения содержания картинки.
+        Если задан только один из атрибутов, второй размер будет высчитан в соответствие с пропорциями изображения и
+        заданным атрибутом.
+        При указании обоих атрибутов ПА «впишет» изображение в область с указанными размерами.</p>
+		<figure style="text-align: center;">
+			<img src="aquaria.jpg" alt="Кот" width="250" height="150">
+		</figure>
+		<figure style="text-align: center;">
+			<img src="aquaria.jpg" alt="Кот" width="400" height="250">
+		</figure>
+		
+    <p>Для добавления гибких (responsive) изображений (таких,
+        которые отображаются хорошо на устройствах с сильно отличающимися размерами экрана, разрешением, и другими
+        характеристиками)
+        используют атрибуты <code>sizes</code> и <code>srcset</code>.
+        Атрибут <code>sizes</code> задаёт размеры изображения для разных макетов страницы.
+        Атрибут <code>srcset</code> задаёт путь к графическим файлам с учётом размера изображения и устройств.
+		<figure style="text-align: center;">
+			<img src="mushroom_landscape.jpg" alt="Мухомор" sizes="(max-width: 1280px) 100vw, 1280px"
+				 srcset="mushroom_portrait.jpg 320w,
+				 		 mushroom_landscape.jpg 480w,
+						 mushroom_landscape.jpg 800w,
+						 mushroom_landscape.jpg 1280w">
+		</figure>
+		
+
+    </p>
+
+    <h2>Подпись к изображению</h2>
+    <p>Для группирования любых элементов, например, изображений и подписей к ним используется элемент <code>figure</code>.
+        Он не должен быть связан непосредственно с основным содержимым документа и при его перемещении в другое место
+        смысл текста не должен меняться.
+        Обычно применяется для иллюстраций, фрагментов кода, схем, графиков, диаграмм и др.
+        Элемент <code>figcaption</code> содержит описание для элемента <code>figure</code>. Он должен быть первым или
+        последним элементом в группе.</p>
+
+    <figure style="text-align: center;">
+        <img src="html5-logo.png" alt="HTML лого" width="400" height="300">
+        <figcaption>Лого HTML</figcaption>
+    </figure>
+
+	<figure style="text-align: center;">
+		<img src="muscle.png" alt="Мускулы" width="400" height="300">
+		<figcaption>Строение человека</figcaption>
+	</figure>
+	
+
+    <h2>Элемент picture</h2>
+    <p>
+        HTML-элемент <code>picture</code> служит контейнером для одного или более элементов
+        <code>source</code> и одного элемента <code>img</code> для обеспечения оптимальной версии изображения
+        для различных размеров экрана. Браузер рассмотрит каждый из дочерних элементов <code>source</code>
+        и выберет один, соответствующий лучшему совпадению; если совпадений среди элементов <code>source</code>
+        найдено не будет, то будет выбран файл, указанный атрибутом <code>src</code> элемента <code>img</code>.
+        Затем выбранное изображение отображается в пространстве, занятом элементом <code>img</code>.
+		<figure style="text-align: center;">
+			<picture>
+				<source srcset="image-320w.jpg" media="(max-width: 320px)">
+				<source srcset="image-480w.jpg" media="(max-width: 480px)">
+				<source srcset="image-800w.jpg" media="(max-width: 800px)">
+				<img src="globus.gif" alt="gif глобус">
+			</picture>
+			<figcaption>Gif Глобус</figcaption>
+		</figure>
+    </p>
+</section>
+</body>
+</html>
