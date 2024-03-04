@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Списки</title>
+<style>
+    .alpha-list dt:before {
+        content: counter(alphaCounter, lower-alpha) ". ";
+        counter-increment: alphaCounter;
+    }
+    .alpha-list {
+        counter-reset: alphaCounter;
+    }
+</style>
+</head>
+<body>
+<ul>
+    <li>Курсы
+        <ol type="1">
+            <li>Каталог курсов
+                <ul>
+                    <li>Курсы для пользователей
+                        <ul style="list-style-type: circle;">
+                            <li>Компьютерные курсы для начинающих</li>
+                            <li>Office 2003</li>
+                            <li>Курсы для продвинутых пользователей</li>
+                        </ul>
+                    </li>
+                    <li>Настройка и ремонт ПК
+                        <ul style="list-style-type: circle;">
+                            <li>Настройка офисных и домашних компьютеров</li>
+                            <li>Техническое обслуживание и ремонт ПЭВМ</li>
+                        </ul>
+                    </li>
+                    <li>Интернет-технологии
+                        <ul style="list-style-type: circle;">
+                            <li>Интернет</li>
+                            <li>PHP</li>
+                            <li>Web-мастеринг</li>
+                            <li>Web-дизайн</li>
+                            <li>Flash</li>
+                        </ul>
+                    </li>
+                    <li>Компьютерная графика, верстка, дизайн
+                        <ul style="list-style-type: circle;">
+                            <li>Photoshop</li>
+                            <li>CorelDRAW</li>
+                            <li>QuarkXPress</li>
+                            <li>InDesign</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Дистанционное обучение</li>
+            <li>Запись на курсы</li>
+            <li>Расписание курсов</li>
+            <li>Экзамены</li>
+            <li>Документы об окончании</li>
+        </ol>
+    </li>
+    <li>Специальные предложения
+        <dl class="alpha-list">
+            <dt>Скидки</dt>
+            <dt>Обучение в кредит</dt>
+            <dt>Бесплатные занятия для наших слушателей</dt>
+        </dl>
+    </li>
+</ul>
+</body>
+</html>
