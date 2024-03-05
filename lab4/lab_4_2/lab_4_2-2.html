@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+		<meta charset="UTF-8">
+		<title>Меню</title>
+		<style>
+			html {
+				background: #ffffff;
+			}
+			
+			.menu {
+				width: 220px;
+				background: #ffffff;
+			}
+			
+			.menu ul {
+				list-style-type: none;
+			}
+			
+            .menu li {
+                position: relative;
+            }
+
+			.menu li::before {
+    			display: block;
+    			content: '';
+    			background-image: url('css_sprites.png');
+    			background-position: -10px -46px;
+    			width: 16px;
+    			height: 16px;
+    			left: -20px;
+    			position: absolute;
+			}
+
+			
+			.menu li.dot-marker::before {
+    			background-image: url('css_sprites.png');
+    			background-position: -46px -10px;
+			}			
+
+	</style>
+</head>
+<body>
+	<nav class="menu">
+		<ul>
+			<li><a href="#">Фильмы</a>
+				<ul>
+					<li class="dot-marker"><a href="#">Экшн</a></li>
+					<li class="dot-marker"><a href="#">Мелодрамы</a></li>
+					<li class="dot-marker"><a href="#">Сериалы</a></li>
+					<li class="dot-marker"><a href="#">Семейные</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Музыка</a>
+				<ul>
+					<li class="dot-marker"><a href="#">Классика</a></li>
+					<li class="dot-marker"><a href="#">Джаз</a></li>
+					<li class="dot-marker"><a href="#">Рок</a></li>
+					<li class="dot-marker"><a href="#">Грандж</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Софт</a>
+				<ul>
+					<li class="dot-marker"><a href="#">Графика</a></li>
+					<li class="dot-marker"><a href="#">3D-моделирование</a></li>
+					<li class="dot-marker"><a href="#">Машинопись</a></li>
+					<li class="dot-marker"><a href="#">Переводчики</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Игры</a>
+				<ul>
+					<li class="dot-marker"><a href="#">РПГ</a></li>
+					<li class="dot-marker"><a href="#">Шутеры</a></li>
+					<li class="dot-marker"><a href="#">Пасьянсы</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>
