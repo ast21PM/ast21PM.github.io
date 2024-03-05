@@ -1,0 +1,22 @@
+
+        body {
+            color: white;
+            background-color: black;
+        }
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        h1, h2 {
+            text-align: right;
+            font-family: Arial, sans-serif;
+            color: red;
+        }
+        em {
+            color: green;
+        }
+        p {
+            text-align: right;
+        }
+        
