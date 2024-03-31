@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mamon</title>
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
-        
+<head>
+    <meta charset="UTF-8">
+    <title>Mamon</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" href="css/all.css">
-         <link rel="stylesheet" href="font/stylesheet.css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <header>
-            <div class="header">
-                <a href="#" class="logo">
-                    <span class="logo-img">&nbsp;</span>
-                    <span class="logo-txt">mamon</span>
-                </a>
-                <nav>
-                    <ul class="menu">
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Clients</a></li>
-                        <li><a href="#">Our team</a></li>
-                        <li><button class="menu-button" type="button">Contact Us</button></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        
-        <div class="subsection">
-            <div class="content">
-                <div class="wrap">
-                    <h1 class="title-main">We're an independent development agency.</h1>
-                    <p class="text-main">We understand the intricacies of web development inside-out. That's why we build rock-solid Mobile and Web applications enriched with user-centered visual experiences.</p>
-                    <button class="content-button" type="button">Contact Us</button>
-                </div>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="font/stylesheet.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="#" class="logo">
+                <span class="logo-img">&nbsp;</span>
+                <span class="logo-txt">mamon</span>
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#team">Our team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div id="services" class="subsection">
+        <div class="services">
+            <div class="wrap">
+                <h1 class="title-main">We're an independent development agency.</h1>
+                <p class="text-main">We understand the intricacies of web development inside-out. That's why we build rock-solid Mobile and Web applications enriched with user-centered visual experiences.</p>
+                <button class="content-button" type="button">Contact Us</button>
             </div>
         </div>
-        
-        <div class="subsection">
-            <div class="services">
-                <div class="wrap">
-                    <h2>OUR SERVICES</h2>
-                    <div class="grid-services">
+        <div id="contact" class="subsection">
+            <div class="wrap">
+                <h2>Contact Us</h2>
                         <div class="ingrid-item">
                             <div class="ingrid-img">
                                 <img src="image/service/Mobile-Development.svg" alt="Mobile Development.svg">
@@ -100,7 +94,7 @@
             </div>
         </div>
         <div class="subsection">
-            <div class="clients">
+            <div id="clients" class="subsection">
                 <div class="wrap">
                     <h2>OUR CLIENTS</h2>
                     <div class="grid-clients">
@@ -121,7 +115,7 @@
             </div>
         </div>
         <div class="subsection">
-            <div class="team">
+            <div id="team" class="subsection">
                 <div class="wrap">
                     <h2>OUR TEAM</h2>
                     <div class="grid-team">
@@ -225,4 +219,4 @@
         </footer>
         <script defer src="js/all.js"></script>
     </body>
-</html>
+    </html>
