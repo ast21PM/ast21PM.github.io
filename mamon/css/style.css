@@ -1,13 +1,13 @@
 
 @font-face {
-    font-family: 'Gropled';
-    src: url('Gropled-Bold.otf') format('otf');
-    font-weight: bold;
+    font-family: 'goosberry02';
+    src: url('goosberry02.otf') format('otf');
+    font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family: "Gropled", sans-serif;
+    font-family: "goosberry02", sans-serif;
     font-style: normal;
 }
 
