@@ -1,5 +1,13 @@
+
+@font-face {
+    font-family: 'Gropled';
+    src: url('Gropled-Bold.otf') format('otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-    font-family: "Hellix", sans-serif;
+    font-family: "Gropled", sans-serif;
     font-style: normal;
 }
 
