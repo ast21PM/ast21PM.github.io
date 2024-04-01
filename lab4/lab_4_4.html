@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 		<meta charset="UTF-8">
-		<title>Меню</title>
+		<title>Оформление вертикального меню</title>
 		<style>
 			html {
 				background: #f0f0f0;
@@ -21,7 +22,7 @@
 				display: none;
 				position: relative;
 				top: 0;
-				width: 200px;
+				width: 150px;
 			}
 
 			.menu li:hover ul {
@@ -32,46 +33,59 @@
                 position: relative;
             }
 
-			.fa-regular {
+			.menu > ul > li:before {
+				font-family: 'FontAwesome',sans-serif;
+				content: '\f196';
 				position: absolute;
-				left: 50px;
+				left: -20px;
 			}
 
+			.menu li ul li:before {
+				font-family: 'FontAwesome', sans-serif;
+				content: '\f192';
+				position: absolute;
+				left: -20px;
+			}
+
+			.menu > ul > li:hover:before {
+				content: '\f147';
+
+			}
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 	<nav class="menu">
 		<ul>
-			<li><i class="fa-li fa-regular">&#xf146;</i><a href="#">Фильмы</a>
+			<li><a href="#">Фильмы</a>
 				<ul>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Экшн</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Мелодрамы</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Сериалы</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Семейные</a></li>
+					<li><a href="#">Экшн</a></li>
+					<li><a href="#">Мелодрамы</a></li>
+					<li><a href="#">Сериалы</a></li>
+					<li><a href="#">Семейные</a></li>
 				</ul>
 			</li>
-			<li><i class="fa-li fa-regular">&#xf146;</i><a href="#">Музыка</a>
+			<li><a href="#">Музыка</a>
 				<ul>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Классика</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Джаз</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Рок</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Грандж</a></li>
+					<li><a href="#">Классика</a></li>
+					<li><a href="#">Джаз</a></li>
+					<li><a href="#">Рок</a></li>
+					<li><a href="#">Грандж</a></li>
 				</ul>
 			</li>
-			<li><i class="fa-li fa-regular">&#xf146;</i><a href="#">Софт</a>
+			<li><a href="#">Софт</a>
 				<ul>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Графика</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">3D-моделирование</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Машинопись</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Переводчики</a></li>
+					<li><a href="#">Графика</a></li>
+					<li><a href="#">3D-моделирование</a></li>
+					<li><a href="#">Машинопись</a></li>
+					<li><a href="#">Переводчики</a></li>
 				</ul>
 			</li>
-			<li><i class="fa-li fa-regular">&#xf146;</i><a href="#">Игры</a>
+			<li><a href="#">Игры</a>
 				<ul>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">РПГ</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Шутеры</a></li>
-					<li><i class="fa-li fa-regular">&#xf192;</i><a href="#">Пасьянсы</a></li>
+					<li><a href="#">РПГ</a></li>
+					<li><a href="#">Шутеры</a></li>
+					<li><a href="#">Пасьянсы</a></li>
 				</ul>
 			</li>
 		</ul>
