@@ -1,13 +1,12 @@
 
 @font-face {
-    font-family: 'goosberry02';
-    src: url('goosberry02.otf') format('otf');
+    font-family: 'Brutman';
+    src: url('font/Brutman-70.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
-
 body {
-    font-family: "goosberry02", sans-serif;
+    font-family: "Brutman", sans-serif;
     font-style: normal;
 }
 
