@@ -1,0 +1,215 @@
+@import url('fonts/stylesheet.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Hellix', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.container {
+    max-width: 1152px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.services, .clients, .team {
+    border-top: #C2C2C2 1px solid;
+}
+
+.services h2, .clients h2, .team h2 {
+    color: #C2C2C2;
+    font-size: 14px;
+    font-weight: 300;
+    background-color: #fff;
+    padding: 0 20px;
+    position: absolute;
+    top: -10px;
+    left: -20px;
+}
+
+/* Header */
+.header {
+    margin-top: 53px;
+    margin-bottom: 124px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-logo p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.header-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.header-item:nth-child(4) .header-link {
+    background-color: #5528FF;
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+
+.header-link {
+    font-size: 14px;
+    color: #202020;
+    font-weight: 600;
+}
+
+/* Banner */
+.banner {
+    margin-bottom: 100px;
+}
+
+.banner h1 {
+    font-size: 58px;
+    font-weight: 700;
+    color: #202020;
+}
+
+.banner p {
+    font-size: 32px;
+    color: #4F4F4F;
+    max-width: 741px;
+    margin: 24px 0 70px 0;
+}
+
+.banner button {
+    outline: none;
+    border: none;
+    background-color: #5528FF;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 24px;
+    padding: 13px 52px;
+    cursor: pointer;
+}
+
+/* Services */
+.services-grid {
+    display: grid;
+    grid-template: repeat(2, 1fr) / 50% 50%;
+    grid-row-gap: 38px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.service-item span {
+    font-size: 28px;
+    color: #000;
+}
+
+.service-item p {
+    font-size: 14px;
+    color: #B2B2B2;
+    line-height: 1.5;
+}
+
+.service-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.service-img {
+    flex-basis: 165px;
+    text-align: center;
+}
+
+.service-description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-basis: calc(80% - 165px);
+}
+
+/* Clients */
+.clients-grid {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    text-align: center;
+    grid-row-gap: 44px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+/* Team */
+.team-grid {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-row-gap: 51px;
+}
+
+.worker {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
+}
+
+.worker-img img {
+    border-radius: 50%;
+}
+
+.worker-description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-basis: calc(80% - 165px);
+}
+
+.worker span {
+    font-size: 28px;
+    color: #000;
+    font-weight: 700;
+}
+
+.worker p {
+    font-size: 14px;
+    color: #B2B2B2;
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: #F7F7F7;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 40px;
+}

@@ -1,221 +1,185 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Mamon</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="header">
-            <a href="#" class="logo">
-                <span class="logo-img">&nbsp;</span>
-                <span class="logo-txt">mamon</span>
+    <div class="container">
+        <header class="header">
+            <a href="#" class="header-logo">
+                <img src="img/mamon-logo.svg" alt="logo">
+                <p>mamon</p>
             </a>
-            <nav>
-                <ul class="menu">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#clients">Clients</a></li>
-                    <li><a href="#team">Our team</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+            <nav class="header-nav">
+                <ul class="header-list">
+                    <li class="header-item">
+                        <a href="#services" class="header-link">Services</a>
+                    </li>
+                    <li class="header-item">
+                        <a href="#clients" class="header-link">Clients</a>
+                    </li>
+                    <li class="header-item">
+                        <a href="#team" class="header-link">Our team</a>
+                    </li>
+                    <li class="header-item">
+                        <a href="#contact" class="header-link">Contact Us</a>
+                    </li>
                 </ul>
             </nav>
-        </div>
-    </header>
-    
-    <div id="services" class="subsection">
-        <div class="services">
-            <div class="wrap">
-                <h1 class="title-main">We're an independent development agency.</h1>
-                <p class="text-main">We understand the intricacies of web development inside-out. That's why we build rock-solid Mobile and Web applications enriched with user-centered visual experiences.</p>
-                <button class="content-button" type="button">Contact Us</button>
-            </div>
-        </div>
-        <div id="contact" class="subsection">
-            <div class="wrap">
-                <h2>Contact Us</h2>
-                        <div class="ingrid-item">
-                            <div class="ingrid-img">
-                                <img src="image/service/Mobile-Development.svg" alt="Mobile Development.svg">
-                            </div>
-                            <div class="ingrid-text">
-                                <h3>Mobile Development</h3>
-                                <p>We develop mobile apps for all contemporary 
-                                    mobile platforms. Mamon team builds 
-                                    native and cross-platform solutions.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ingrid-item">
-                            <div class="ingrid-img">
-                                <img src="image/service/Web-Development.svg" alt="Web Development.svg">
-                            </div>
-                            <div class="ingrid-text">
-                                <h3>Web Development</h3>
-                                <p>Mamon offers full range of services from various
-                                    CMS and frameworks based websites to complex
-                                    ERP/CRM solutions and e-commerce stores.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ingrid-item">
-                            <div class="ingrid-img">
-                                <img src="image/service/Product-Design.svg" alt="Product Design.svg">
-                            </div>
-                            <div class="ingrid-text">
-                                <h3>Product Design</h3>
-                                <p>We create design given the product audience,
-                                    goal, business domain, technology and
-                                    the platform for the solution.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ingrid-item">
-                            <div class="ingrid-img">
-                                <img src="image/service/Quality-Assurance.svg" alt="Quality Assurance.svg">
-                            </div>
-                            <div class="ingrid-text">
-                                <h3>Quality Assurance</h3>
-                                <p>Our QA team ensures high standard of 
-                                    quality of products delivered.
-                                </p>
-                            </div>
-                        </div>
+        </header>
+        <section class="banner" id="contact">
+            <h1>We're an independent development agency.</h1>
+            <p>We understand the intricacies of web development inside-out. That's why we build rock-solid Mobile and Web applications enriched with user-centered visual experiences.</p>
+            <button>Contact Us</button>
+        </section>
+    </div>
+    <section class="services" id="services">
+        <div class="container">
+            <h2>OUR SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="img/smartphone.svg" alt="smartphone-img">
+                    </div>
+                    <div class="service-description">
+                        <span>Mobile Development</span>
+                        <p>We develop mobile apps for all contemporary mobile platforms. Mamon team builds native and cross-platform solutions.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="img/monitor.svg" alt="monitor-img">
+                    </div>
+                    <div class="service-description">
+                        <span>Web Development</span>
+                        <p>Mamon offers full range of services from various CMS and frameworks based websites to complex ERP/CRM solutions and e-commerce stores.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="img/layers.svg" alt="layers-img">
+                    </div>
+                    <div class="service-description">
+                        <span>Product Design</span>
+                        <p>We create design given the product audience, goal, business domain, technology and the platform for the solution.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="img/test.svg" alt="test-img">
+                    </div>
+                    <div class="service-description">
+                        <span>Quality Assurance</span>
+                        <p>Our QA team ensures high standard of quality of products delivered.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="subsection">
-            <div id="clients" class="subsection">
-                <div class="wrap">
-                    <h2>OUR CLIENTS</h2>
-                    <div class="grid-clients">
-                        <div class="grid-clients-item"><img src="image/clients/logo-lightspeed.svg" alt="logo-lightspeed.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-trvl.svg" alt="logo-trvl.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-spider-strategies.svg" alt="logo-spider-strategies.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-tripadvisor.svg" alt="logo-tripadvisor.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-shutterfly.svg" alt="logo-shutterfly.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-decos.svg" alt="logo-decos.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-tiqets.svg" alt="logo-tiqets.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-hotelchamp.svg" alt="logo-hotelchamp.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-flitsmeister.svg" alt="logo-flitsmeister.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-sap.svg" alt="logo-sap.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-redkix.svg" alt="logo-redkix.svg"></div>
-                        <div class="grid-clients-item"><img src="image/clients/logo-nos.svg" alt="logo-nos.svg"></div>
+    </section>
+    <section class="clients" id="clients">
+        <div class="container">
+            <h2>OUR CLIENTS</h2>
+            <div class="clients-grid">
+                <div class="client"><img src="img/logo-lightspeed.svg" alt="lightspeed-img"></div>
+                <div class="client"><img src="img/logo-trvl.svg" alt="trvl-img"></div>
+                <div class="client"><img src="img/logo-spider-strategies.svg" alt="spider-strategies-img"></div>
+                <div class="client"><img src="img/logo-tripadvisor.svg" alt="tripadvisor-img"></div>
+                <div class="client"><img src="img/logo-shutterfly.svg" alt="shutterfly-img"></div>
+                <div class="client"><img src="img/logo-decos.svg" alt="decos-img"></div>
+                <div class="client"><img src="img/logo-tiqets.svg" alt="tiqets-img"></div>
+                <div class="client"><img src="img/logo-hotelchamp.svg" alt="hotelcamp-img"></div>
+                <div class="client"><img src="img/logo-flitsmeister.svg" alt="flitsmeister-img"></div>
+                <div class="client"><img src="img/logo-sap.svg" alt="sap-img"></div>
+                <div class="client"><img src="img/logo-redkix.svg" alt="redkix-img"></div>
+                <div class="client"><img src="img/logo-nos.svg" alt="nos-img"></div>
+            </div>
+        </div>
+    </section>
+    <section class="team" id="team">
+        <div class="container">
+            <h2>OUR TEAM</h2>
+            <div class="team-grid">
+                <div class="worker">
+                    <div class="worker-img"><img src="img/vadim.svg" alt="vadim-img"></div>
+                    <div class="worker-description">
+                        <span>Vadim</span>
+                        <p>Managing Director</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/sergey.svg" alt="sergey-img"></div>
+                    <div class="worker-description">
+                        <span>Sergey</span>
+                        <p>Technology Director</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/andrey.svg" alt="andrey-img"></div>
+                    <div class="worker-description">
+                        <span>Andrey</span>
+                        <p>Front-end Developer</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/alex.svg" alt="alex-img"></div>
+                    <div class="worker-description">
+                        <span>Alex</span>
+                        <p>Front-end Developer</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/agneshka.svg" alt="agneshka-img"></div>
+                    <div class="worker-description">
+                        <span>Agneshka</span>
+                        <p>Mobile Developer</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/dmitry.svg" alt="dmitry-img"></div>
+                    <div class="worker-description">
+                        <span>Dmitry</span>
+                        <p>Back-end Developer</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/artyom.svg" alt="artyom-img"></div>
+                    <div class="worker-description">
+                        <span>Artyom</span>
+                        <p>Back-end Developer</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/evgeny.svg" alt="evgeny-img"></div>
+                    <div class="worker-description">
+                        <span>Evgeny</span>
+                        <p>Product Designer</p>
+                    </div>
+                </div>
+                <div class="worker">
+                    <div class="worker-img"><img src="img/tom.svg" alt="tom-img"></div>
+                    <div class="worker-description">
+                        <span>Tom</span>
+                        <p>Product Designer</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="subsection">
-            <div id="team" class="subsection">
-                <div class="wrap">
-                    <h2>OUR TEAM</h2>
-                    <div class="grid-team">
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Vadim.svg" alt="Vadim.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Vadim</h3>
-                                <p>Managing Director</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Sergey.svg" alt="Sergey.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Sergey</h3>
-                                <p>Technology Director</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Andrey.svg" alt="Andrey.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Andrey</h3>
-                                <p>Front-end Developer</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Alex.svg" alt="Alex.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Alex</h3>
-                                <p>Front-end Developer</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Agneshka.svg" alt="Agneshka.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Agneshka</h3>
-                                <p>Mobile Developer</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Dmitry.svg" alt="Dmitry.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Dmitry</h3>
-                                <p>Back-end Developer</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Artyom.svg" alt="Artyom.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Artyom</h3>
-                                <p>Back-end Developer</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Evgeny.svg" alt="Evgeny.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Evgeny</h3>
-                                <p>Product Designer</p>
-                            </div>
-                        </div>
-                        <div class="grid-team-item">
-                            <div class="team-img">
-                                <img src="image/team/Tom.svg" alt="Tom.svg">
-                            </div>
-                            <div class="team-text">
-                                <h3>Tom</h3>
-                                <p>Product Designer</p>
-                            </div>
-                        </div>
-                    </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <img src="img/mamon-logo.svg" alt="mamon-logo" class="footer-logo">
+                <div class="footer-socials">
+                    <img src="img/github.svg" alt="github-logo">
+                    <img src="img/behance.svg" alt="behance-logo">
+                    <img src="img/in.svg" alt="in-logo">
+                    <img src="img/cube.svg" alt="cube-logo">
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="footer">
-                <a href="#" class="logo">
-                    <span class="logo-img">&nbsp;</span>
-                </a>
-                <ul class="social">
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-github">&nbsp;</i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-behance">&nbsp;</i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-linkedin-in">&nbsp;</i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-codepen">&nbsp;</i></a></li>
-                </ul>
-            </div>
-        </footer>
-        <script defer src="js/all.js"></script>
-    </body>
-    </html>
+    </footer>
+</body>
+</html>
