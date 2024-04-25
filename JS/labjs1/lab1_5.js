@@ -3,6 +3,7 @@
 function drawTable(rows) {
     let animals = ['dog', 'dog', 'dog', 'cat', 'cat', 'dog']; 
     let index = 0; 
+    let table = '';
 
     for (let i = 0; i < rows; i++) {
         let row = '';
@@ -10,14 +11,18 @@ function drawTable(rows) {
             row += animals[index % animals.length] + '\t'; 
             index++;
         }
-        console.log(row); 
+        table += row + '\n';
     }
+
+    console.log(table); 
+    alert(table);
 }
 
 let numRows = parseInt(prompt("Введите количество строк:", ""));
 
 if (isNaN(numRows) || numRows <= 0) {
     console.log("Введите корректное значение количества строк.");
+    alert("Введите корректное значение количества строк.");
 } else {
     drawTable(numRows);
 }

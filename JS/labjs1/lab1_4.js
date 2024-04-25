@@ -3,9 +3,9 @@
 let n = parseInt(prompt("Введите число n (n > 1):", ""));
 
 if (isNaN(n) || n <= 1) {
-    console.log("Введите корректное значение n (n должно быть натуральным числом больше 1).");
+    alert("Введите корректное значение n (n должно быть натуральным числом больше 1).");
 } else {
-    console.log("Простые числа в интервале от 2 до", n, ":");
+    let primes = "Простые числа в интервале от 2 до " + n + ":\n";
 
     for (let i = 2; i <= n; i++) {
         let isPrime = true;
@@ -18,7 +18,9 @@ if (isNaN(n) || n <= 1) {
         }
         
         if (isPrime) {
-            console.log(i);
+            primes += i + "\n";
         }
     }
+    
+    alert(primes);
 }
