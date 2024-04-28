@@ -5,18 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Разработка и дизайн веб-сайтов, и Javascript | Лабораторные работы</title>
   <style>
-    a {
-      font-size: 20px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      text-align: center;
+      color: #fff; 
+    }
+
+    ol, ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
     }
 
     li {
       margin-top: 15px;
     }
 
-    h1 {
-      color: red;
+    a {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 20px;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
 
     #javascript-section {
       margin-top: 30px;
@@ -24,39 +52,62 @@
       padding-top: 20px;
     }
 
-    #javascript-section h2 {
-      text-transform: uppercase;
+    #javascript-section h1 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+    }
+
+    #javascript-section ul {
+      text-align: center;
     }
 
     #javascript-section a {
-      color: rgb(17, 0, 255);
+      color: #0b69a3;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <h1>Лабораторные работы HTML | CSS: </h1>
-  <ol>
-    <li><a href="lab1">Лаба 1</a></li>
-    <li><a href="lab2">Лаба 2</a></li>
-    <li><a href="lab3">Лаба 3</a></li>
-    <li><a href="lab4">Лаба 4</a></li>
-    <li><a href="lab5">Лаба 5</a></li>
-    <li><a href="mamon">Макет сайта</a></li>
-  </ol>
+  <header>
+    <h1>Лабораторные работы HTML | CSS:</h1>
+  </header>
 
-  <!-- Раздел JavaScript -->
-  <div id="javascript-section">
-    <h1>Лабораторные по JavaScript</h1>
-    <ul>
-      <li><a href="JS/labjs1/index.html">Лаба 1</a></li>
-      <li><a href="JS/labjs2/index.html">Лаба 2</a></li>
-      <li><a href="JS/labjs3/index.html">Лаба 3</a></li>
-      <li><a href="JS/labjs4/index.html">Лаба 4</a></li>
-      <li><a href="JS/labjs5/index.html">Лаба 5</a></li>
-      <li><a href="JS/labjs6/index.html">Лаба 6</a></li>
-      <li><a href="JS/labjs7/index.html">Лаба 7</a></li>
+  <main>
+    <ol>
+      <li><a href="lab1">Лаба 1</a></li>
+      <li><a href="lab2">Лаба 2</a></li>
+      <li><a href="lab3">Лаба 3</a></li>
+      <li><a href="lab4">Лаба 4</a></li>
+      <li><a href="lab5">Лаба 5</a></li>
+      <li><a href="mamon">Макет сайта</a></li>
+    </ol>
 
-    </ul>
-  </div>
+    <div id="javascript-section">
+      <h1>Лабораторные по JavaScript</h1>
+      <ul>
+        <li><a href="JS/labjs1/index.html">Лаба 1</a></li>
+        <li><a href="JS/labjs2/index.html">Лаба 2</a></li>
+        <li><a href="JS/labjs3/index.html">Лаба 3</a></li>
+        <li><a href="JS/labjs4/index.html">Лаба 4</a></li>
+        <li><a href="JS/labjs5/index.html">Лаба 5</a></li>
+        <li><a href="JS/labjs6/index.html">Лаба 6</a></li>
+        <li><a href="JS/labjs7/index.html">Лаба 7</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2024 ast (a'ka Никита Гольцов)
+  </footer>
 </body>
 </html>
