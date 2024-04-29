@@ -11,6 +11,8 @@ function drawTable(rows) {
             row += animals[index % animals.length] + '\t'; 
             index++;
         }
+        
+        animals.unshift(animals.pop());
         table += row + '\n';
     }
 
