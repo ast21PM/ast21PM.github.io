@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отображение содержимого JavaScript файла</title>
+    <style>
+        body { background: black; color: white; font-family: Arial, sans-serif; }
+        pre { white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <pre id="code"></pre>
+    <script>
+        fetch('code.js').then(response => response.text()).then(code => document.getElementById('code').textContent = code);
+    </script>
+</body>
+</html>
