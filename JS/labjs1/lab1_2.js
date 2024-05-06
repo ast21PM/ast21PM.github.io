@@ -1,13 +1,20 @@
 'use strict';
 
-let num = parseInt(prompt("Введите целое число:", ""));
+var num = prompt("Enter number of crows");
+num = parseInt(num);
 
-if (num === 1) {
-    alert("На ветке сидит 1 ворона");
-} else if (num >= 2 && num <= 4) {
-    alert("На ветке сидит " + num + " вороны");
-} else if (num >= 5) {
-    alert("На ветке сидит " + num + " ворон");
+if (num >= 0) {
+    if (num === 0 || num >= 5) {
+        console.log(`${num} ворон`);
+        alert(`${num} ворон`);
+    } else if (num === 1) {
+        console.log(`${num} ворона`);
+        alert(`${num} ворона`);
+    } else {
+        console.log(`${num} вороны`);
+        alert(`${num} вороны`);
+    }
 } else {
-    alert("Введите корректное значение");
+    console.log('Nah');
+    alert('Nah');
 }
