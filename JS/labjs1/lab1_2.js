@@ -11,21 +11,3 @@ if (num === 1) {
 } else {
     alert("Введите корректное значение");
 }
-
-switch (num) {
-    case 1:
-        alert("На ветке сидит 1 ворона");
-        break;
-    case 2:
-    case 3:
-    case 4:
-        alert("На ветке сидит " + num + " вороны");
-        break;
-    default:
-        if (num >= 5) {
-            alert("На ветке сидит " + num + " ворон");
-        } else {
-            alert("Введите корректное значение");
-        }
-        break;
-}

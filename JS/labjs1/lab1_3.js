@@ -4,7 +4,7 @@ let number;
 
 do {
     number = prompt("Введите число больше 100:", "");
-} while (number !== null && (isNaN(number) || parseInt(number) <= 100));
+} while (number !== null && (isNaN(number.replace(',', '.')) || parseFloat(number.replace(',', '.')) <= 100));
 
 if (number !== null) {
     alert("Вы ввели число больше 100: " + number);

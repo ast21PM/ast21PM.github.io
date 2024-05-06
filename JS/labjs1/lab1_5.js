@@ -1,22 +1,28 @@
 'use strict';
 
 function drawTable(rows) {
-    let animals = ['dog', 'dog', 'dog', 'cat', 'cat', 'dog']; 
-    let index = 0; 
+    let dogs = 3;
+    let cats = 2;
     let table = '';
 
     for (let i = 0; i < rows; i++) {
         let row = '';
         for (let j = 0; j < 6; j++) {
-            row += animals[index % animals.length] + '\t'; 
-            index++;
+            if (dogs) {
+                row += 'dog\t';
+                dogs--;
+            } else {
+                row += 'cat\t';
+                cats--;
+            }
         }
-        
-        animals.unshift(animals.pop());
+
+        dogs = 3;
+        cats = 2;
         table += row + '\n';
     }
 
-    console.log(table); 
+    console.log(table);
     alert(table);
 }
 
