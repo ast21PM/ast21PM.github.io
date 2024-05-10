@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editable Div</title>
+<style>
+    #editableDiv {
+        border: 1px solid #ccc;
+        padding: 10px;
+        cursor: text;
+    }
+    #editableTextarea {
+        display: none;
+        width: 100%;
+        height: 200px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        resize: none;
+    }
+</style>
+</head>
+<body>
+
+<div id="editableDiv" contenteditable="true" onkeydown="handleKeyDown(event)">
+    Click here and press Ctrl+E to edit
+</div>
+<textarea id="editableTextarea" onkeydown="handleKeyDown(event)"></textarea>
+
+<script>
+    const editableDiv = document.getElementById('editableDiv');
+    const editableTextarea = document.getElementById('editableTextarea');
+
+    function handleKeyDown(event) {
+        if (event.ctrlKey && event.key === 'e') {
+            event.preventDefault();
+            editableDiv.style.display = 'none';
+            editableTextarea.style.display = 'block';
+            editableTextarea.value = editableDiv.innerHTML;
+            editableTextarea.focus();
+        } else if (event.ctrlKey && event.key === 's' && editableTextarea.style.display === 'block') {
+            event.preventDefault();
+            editableDiv.innerHTML = editableTextarea.value;
+            editableDiv.style.display = 'block';
+            editableTextarea.style.display = 'none';
+        } else if (event.key === 'Escape') {
+            event.preventDefault();
+            editableDiv.style.display = 'block';
+            editableTextarea.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

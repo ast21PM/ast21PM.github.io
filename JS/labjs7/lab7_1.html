@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор музыкального стиля</title>
+</head>
+<body>
+
+<select id="musicStyle">
+  <option value="Rock">Рок</option>
+  <option value="Blues">Блюз</option>
+  <option value="Classic" selected>Классика</option>
+</select>
+
+<div id="selectedOption"></div>
+
+<script>
+  function updateSelectedOption() {
+    var select = document.getElementById('musicStyle');
+    var selectedOption = select.options[select.selectedIndex];
+    var selectedValue = selectedOption.value;
+    var selectedText = selectedOption.textContent;
+
+    var selectedOptionDiv = document.getElementById('selectedOption');
+    selectedOptionDiv.textContent = selectedText;
+  }
+
+  document.getElementById('musicStyle').addEventListener('change', updateSelectedOption);
+
+  updateSelectedOption();
+</script>
+
+</body>
+</html>

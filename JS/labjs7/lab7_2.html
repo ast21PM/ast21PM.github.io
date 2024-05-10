@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подсказка-плейсхолдер</title>
+<style>
+    .placeholder {
+        color: blue;
+    }
+</style>
+</head>
+<body>
+
+<input type="text" id="myInput" data-placeholder="Введите ваш текст сюда" class="placeholder">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var input = document.getElementById('myInput');
+        var placeholderText = input.dataset.placeholder;
+
+        // Показываем плейсхолдер как подсказку при фокусировке
+        input.addEventListener('focus', function() {
+            input.removeAttribute('placeholder');
+            input.value = '';
+            input.classList.remove('placeholder');
+            input.placeholder = placeholderText;
+        });
+
+        // Скрываем подсказку при потере фокуса, если поле пустое
+        input.addEventListener('blur', function() {
+            if (input.value === '') {
+                input.removeAttribute('placeholder');
+                input.value = '';
+                input.classList.add('placeholder');
+                input.placeholder = placeholderText;
+            }
+        });
+
+        // Удаляем класс и текст плейсхолдера, когда пользователь начинает вводить текст
+        input.addEventListener('input', function() {
+            input.classList.remove('placeholder');
+            input.removeAttribute('placeholder');
+        });
+    });
+</script>
+
+</body>
+</html>
