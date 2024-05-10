@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+<body>
+    <script>
+        let book1 = {};
+        book1.title = "AC/DC. В аду мне нравится больше";
+        book1.pubYear = 2021;
+        book1.price = 2550;
+
+        let book2 = {
+            title: "Стив Джобс | Айзексон Уолтер",
+            pubYear: 2011,
+            price: 1900
+        };
+
+        function alertProperties(obj) {
+            let properties = "";
+            for (let key in obj) {
+                properties += `${key}: ${obj[key]}\n`;
+            }
+            alert(properties);
+        }
+
+        console.log("Properties of book1:");
+        for (let key in book1) {
+            console.log(`book1.${key} = ${book1[key]}`);
+        }
+        alertProperties(book1);
+
+        console.log("--------");
+
+        console.log("Properties of book2:");
+        for (let key in book2) {
+            console.log(`book2.${key} = ${book2[key]}`);
+        }
+        alertProperties(book2);
+    </script>
+</body>
+</html>

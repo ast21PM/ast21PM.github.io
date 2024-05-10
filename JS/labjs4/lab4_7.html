@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date Formatting</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+    }
+
+    h1 {
+        color: #000000; 
+        text-align: center; 
+        padding: 20px 0; 
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    ol {
+        list-style-type: none; 
+        padding: 0; 
+    }
+
+    li {
+        margin-top: 10px; 
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 18px;
+    }
+
+    a:hover {
+        text-decoration: underline; 
+    }
+</style>
+<script>
+  function formatDate(date) {
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (day < 10) {
+        day = '0' + day;
+    }
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    var formattedDate = day + '.' + month + '.' + year;
+    return formattedDate;
+  }
+
+  window.onload = function() {
+    var currentDate = new Date();
+    document.getElementById("formattedDate").innerHTML = formatDate(currentDate);
+  };
+</script>
+</head>
+<body>
+  <h1>Date Formatting</h1>
+  <div class="center">
+    <p id="formattedDate"></p>
+  </div>
+</body>
+</html>

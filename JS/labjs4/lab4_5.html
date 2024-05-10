@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортировка объектов по возрасту</title>
+</head>
+<body>
+    <script>
+        let vasya = { name: "Вася", age: 23 };
+        let masha = { name: "Маша", age: 18 };
+        let vova = { name: "Вова", age: 12 };
+        let people = [vasya, masha, vova];
+
+        people.sort((a, b) => b.age - a.age);
+
+        console.log(people);
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Manipulation</title>
+</head>
+<body>
+
+<button onclick="addClass()">Добавить класс cls</button>
+<button onclick="removeClass()">Удалить класс</button>
+<div id="element" class="open menu">Элемент</div>
+
+<script>
+let obj = {
+  className: 'open menu',
+  
+  addClass(cls) {
+    let classes = this.className.split(' ');
+    if (!classes.includes(cls)) {
+      classes.push(cls);
+      this.className = classes.join(' ');
+    }
+    return this;
+  },
+
+  removeClass(cls) {
+    let classes = this.className.split(' ');
+    let index = classes.indexOf(cls);
+    if (index !== -1) {
+      classes.splice(index, 1);
+      this.className = classes.join(' ');
+    }
+    return this;
+  }
+};
+
+function addClass() {
+  let cls = prompt("Введите класс для дабавления:");
+  obj.addClass(cls);
+  updateElementClass();
+}
+
+function removeClass() {
+  let cls = prompt("Введите класс для удаления:");
+  obj.removeClass(cls);
+  updateElementClass();
+}
+
+function updateElementClass() {
+  document.getElementById('эелемент').className = obj.className;
+}
+</script>
+
+</body>
+</html>

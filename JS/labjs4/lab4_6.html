@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seconds Since Start of Today</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+    }
+
+    h1 {
+        color: #000000; 
+        text-align: center; 
+        padding: 20px 0; 
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    ol {
+        list-style-type: none; 
+        padding: 0; 
+    }
+
+    li {
+        margin-top: 10px; 
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 18px;
+    }
+
+    a:hover {
+        text-decoration: underline; 
+    }
+</style>
+<script>
+  function getSecondsToday() {
+    var now = new Date();
+    var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var secondsSinceStartOfDay = (now - startOfDay) / 1000;
+    return secondsSinceStartOfDay;
+  }
+
+  window.onload = function() {
+    document.getElementById("seconds").innerHTML = getSecondsToday();
+  };
+</script>
+</head>
+<body>
+  <h1>Seconds Since Start of Today</h1>
+  <div class="center">
+    <p id="seconds"></p>
+  </div>
+</body>
+</html>

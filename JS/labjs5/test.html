@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>Пользователи:</div>
+    <ul>
+        <li>Маша</li>
+        <li>Вовочка</li>
+    </ul>
+    <!-- комментарий -->
+    <script>
+        let headElement = document.head;
+        let ulElement = document.querySelector('ul');
+        let liElements = document.querySelectorAll('li');
+
+        console.log(`Элемент head: ${headElement.innerHTML}`);
+        console.log(`Элемент ul: ${ulElement.innerHTML}`);
+
+        for (const elem of liElements) {
+            console.log(`Элементы li: ${elem.innerHTML}`);
+        }
+    </script>
+</body>
+</html>
