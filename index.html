@@ -12,17 +12,32 @@
       background-color: #f7f7f7;
     }
 
+    body.dark-mode {
+      background-color: #333;
+      color: #f7f7f7;
+    }
+
     header {
       background-color: #333;
       color: #fff;
       padding: 20px;
       text-align: center;
+      position: relative;
+    }
+
+    header.dark-mode {
+      background-color: #444;
+      color: #f7f7f7;
     }
 
     h1 {
       margin-top: 40px;
       text-align: center;
       color: #fff; 
+    }
+
+    h1.dark-mode {
+      color: #f7f7f7;
     }
 
     ol, ul {
@@ -42,6 +57,10 @@
       font-size: 20px;
     }
 
+    a.dark-mode {
+      color: #79b8ff;
+    }
+
     a:hover {
       text-decoration: underline;
     }
@@ -58,12 +77,20 @@
       text-align: center;
     }
 
+    #javascript-section h1.dark-mode {
+      color: #f7f7f7;
+    }
+
     #javascript-section ul {
       text-align: center;
     }
 
     #javascript-section a {
       color: #0b69a3;
+    }
+
+    #javascript-section a.dark-mode {
+      color: #79b8ff;
     }
 
     footer {
@@ -75,11 +102,17 @@
       bottom: 0;
       width: 100%;
     }
+
+    footer.dark-mode {
+      background-color: #444;
+      color: #f7f7f7;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Лабораторные работы HTML | CSS:</h1>
+    <button id="theme-toggle" style="position: absolute; top: 20px; right: 20px;">🌙</button>
   </header>
 
   <main>
@@ -104,10 +137,23 @@
         <li><a href="JS/labjs7/index.html">Лаба 7</a></li>
       </ul>
     </div>
+    
   </main>
 
   <footer>
     &copy; 2024 ast (a'ka Никита Гольцов)
   </footer>
+
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      document.querySelector('header').classList.toggle('dark-mode');
+      document.querySelector('footer').classList.toggle('dark-mode');
+      document.querySelectorAll('h1').forEach(h1 => h1.classList.toggle('dark-mode'));
+      document.querySelectorAll('a').forEach(a => a.classList.toggle('dark-mode'));
+      toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
 </body>
 </html>

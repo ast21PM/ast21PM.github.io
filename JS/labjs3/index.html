@@ -12,10 +12,19 @@
             background-color: #f7f7f7;
         }
 
+        body.dark-mode {
+            background-color: #333;
+            color: #f7f7f7;
+        }
+
         h1 {
             color: #000000; 
             text-align: center; 
             padding: 20px 0; 
+        }
+
+        h1.dark-mode {
+            color: #f7f7f7;
         }
 
         ol {
@@ -37,6 +46,10 @@
         a:hover {
             text-decoration: underline; 
         }
+
+        a.dark-mode {
+            color: #79b8ff;
+        }
     </style>
 </head>
 <body>
@@ -45,6 +58,8 @@
         <li><a href="lab3.js">Сам код для тестирования</a></li>
         <li><a href="lab3test.html">Тесты</a></li>
     </ol>
+
+    <button id="theme-toggle" style="position: absolute; top: 20px; right: 20px;">🌙</button>
 
     <script>
         function runScript(scriptName) {
@@ -55,6 +70,12 @@
 
             newWindow.document.body.appendChild(scriptElement);
         }
+
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
     </script>
 </body>
 </html>
