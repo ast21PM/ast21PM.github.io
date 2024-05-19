@@ -1,29 +1,27 @@
-'use strict';
+"use strict";
 
-let n = prompt("Введите число n:");
+let n = +prompt("Введите число строк:");
+let cat = 2, dog = 3, flag;
+const output = [];
 
-function generateTable(rows) {
-    let table = '';
-    for (let i = 0; i < rows; i++) {
-        let row = '';
-        for (let j = 0; j < 6; j++) {
-            if ((i + j) % 5 < 3) {
-                row += 'dog\t';
-            } else {
-                row += 'cat\t';
-            }
-        }
-        table += row + '\n';
+for (let i = 0; i < n; i++) {
+    let line;
+    if (dog > 0 && cat == 2) {
+        flag = 6 - dog - cat;
+        line = "dog\t".repeat(dog) + "cat\t".repeat(cat) + "dog\t".repeat(flag);
+        console.log(line);
+        output.push(line);
+        dog--;
+    } else {
+        dog = 3;
+        flag = 6 - dog - cat;
+        line = "cat\t".repeat(cat) + "dog\t".repeat(dog) + "cat\t".repeat(flag);
+        console.log(line);
+        output.push(line);
+        cat--;
+        if (cat == 0) { cat = 2; }
     }
-    console.log(table);
-    alert(table);
+    console.log();
+    output.push(""); 
 }
-
-let numRows = parseInt(n);
-
-if (isNaN(numRows) || numRows <= 0) {
-    console.log("Введите корректное число n.");
-    alert("Введите корректное число n.");
-} else {
-    generateTable(numRows);
-}
+alert(output.join("\n"));

@@ -18,37 +18,39 @@ if (age >= 0 && age <= 17) {
 
 
 //задание 2
-'use strict';
+"use strict";
+        let num = +prompt("Введите целое число:");
+        let flag;
+        if(num > 0 && Number.isInteger(num)){
+        if (num % 10 == 1 && num % 100 != 11) {
+            flag = 'а';
 
-let num = parseInt(prompt("Введите целое число:", ""));
-
-if (num === 1) {
-    alert("На ветке сидит 1 ворона");
-} else if (num >= 2 && num <= 4) {
-    alert("На ветке сидит " + num + " вороны");
-} else if (num >= 5) {
-    alert("На ветке сидит " + num + " ворон");
-} else {
-    alert("Введите корректное значение");
-}
-
-switch (num) {
-    case 1:
-        alert("На ветке сидит 1 ворона");
-        break;
-    case 2:
-    case 3:
-    case 4:
-        alert("На ветке сидит " + num + " вороны");
-        break;
-    default:
-        if (num >= 5) {
-            alert("На ветке сидит " + num + " ворон");
-        } else {
-            alert("Введите корректное значение");
         }
-        break;
-}
+        else if ((num % 10 >= 2 && num % 10 <= 4) && !(num % 100 > 10 &&  num % 100 < 20)) {
+            flag = 'ы';
+        }
+        else {
+            flag = '';
+        }
+
+
+        switch (flag) {
+            case 'а':
+                alert(`На ветке сидит ${num} ворон${flag}`);
+                break;
+            case 'ы':
+                alert(`На ветке сидит ${num} ворон${flag}`);
+                break;
+            case '':
+                alert(`На ветке сидит ${num} ворон${flag}`);
+                break;
+            default:
+                alert("Введите целое число");
+                break;
+        }
+        
+    }
+    else alert("Введите целое число");
 
 
 //задание 3

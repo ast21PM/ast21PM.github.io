@@ -1,20 +1,33 @@
-'use strict';
+"use strict";
+        let num = +prompt("Введите целое число:");
+        let flag;
+        if(num > 0 && Number.isInteger(num)){
+        if (num % 10 == 1 && num % 100 != 11) {
+            flag = 'а';
 
-var num = prompt("Enter number of crows");
-num = parseInt(num);
+        }
+        else if ((num % 10 >= 2 && num % 10 <= 4) && !(num % 100 > 10 &&  num % 100 < 20)) {
+            flag = 'ы';
+        }
+        else {
+            flag = '';
+        }
 
-if (num >= 0) {
-    if (num === 0 || num >= 5) {
-        console.log(`${num} ворон`);
-        alert(`${num} ворон`);
-    } else if (num === 1) {
-        console.log(`${num} ворона`);
-        alert(`${num} ворона`);
-    } else {
-        console.log(`${num} вороны`);
-        alert(`${num} вороны`);
+
+        switch (flag) {
+            case 'а':
+                alert(`На ветке сидит ${num} ворон${flag}`);
+                break;
+            case 'ы':
+                alert(`На ветке сидит ${num} ворон${flag}`);
+                break;
+            case '':
+                alert(`На ветке сидит ${num} ворон${flag}`);
+                break;
+            default:
+                alert("Введите целое число");
+                break;
+        }
+        
     }
-} else {
-    console.log('Nah');
-    alert('Nah');
-}
+    else alert("Введите целое число");

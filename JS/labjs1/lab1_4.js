@@ -1,26 +1,27 @@
-'use strict';
+"use strict";
 
-let n = parseInt(prompt("Введите число n (n > 1):", ""));
+let n = +prompt("Введите количество чисел:");
+const primeNumbers = [];
 
-if (isNaN(n) || n <= 1) {
-    alert("Введите корректное значение n (n должно быть натуральным числом больше 1).");
-} else {
-    let primes = "Простые числа в интервале от 2 до " + n + ":\n";
-
-    for (let i = 2; i <= n; i++) {
-        let isPrime = true;
-        
-        for (let j = 2; j < i; j++) {
-            if (i % j === 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        
-        if (isPrime) {
-            primes += i + "\n";
-        }
+function primeNum(n) {
+    if (n <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;  
     }
-    
-    alert(primes);
+    return true;
+}
+
+for (let i = 2; i <= n; i++) {
+    if (primeNum(i)) {
+        primeNumbers.push(i);
+    }  
+}
+
+if (primeNumbers.length == 0) {
+    console.log(0);
+    alert(0);
+} else {
+    let primesString = primeNumbers.join(" ");
+    console.log(primesString);
+    alert(primesString);
 }

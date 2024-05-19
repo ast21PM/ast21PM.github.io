@@ -19,28 +19,40 @@
         var input = document.getElementById('myInput');
         var placeholderText = input.dataset.placeholder;
 
-        // Показываем плейсхолдер как подсказку при фокусировке
-        input.addEventListener('focus', function() {
-            input.removeAttribute('placeholder');
-            input.value = '';
-            input.classList.remove('placeholder');
-            input.placeholder = placeholderText;
-        });
+        input.value = placeholderText;
 
-        // Скрываем подсказку при потере фокуса, если поле пустое
-        input.addEventListener('blur', function() {
-            if (input.value === '') {
-                input.removeAttribute('placeholder');
+        input.addEventListener('focus', function() {
+            if (input.value === placeholderText) {
                 input.value = '';
-                input.classList.add('placeholder');
-                input.placeholder = placeholderText;
+                input.classList.remove('placeholder');
             }
         });
 
-        // Удаляем класс и текст плейсхолдера, когда пользователь начинает вводить текст
+        input.addEventListener('blur', function() {
+            if (input.value === '') {
+                input.value = placeholderText;
+                input.classList.add('placeholder');
+            }
+        });
+
         input.addEventListener('input', function() {
-            input.classList.remove('placeholder');
-            input.removeAttribute('placeholder');
+            if (input.value !== placeholderText) {
+                input.classList.remove('placeholder');
+            }
+        });
+
+        input.addEventListener('mouseleave', function() {
+            if (input.value === '') {
+                input.value = placeholderText;
+                input.classList.add('placeholder');
+            }
+        });
+
+        input.addEventListener('mouseenter', function() {
+            if (input.value === placeholderText) {
+                input.value = '';
+                input.classList.remove('placeholder');
+            }
         });
     });
 </script>
