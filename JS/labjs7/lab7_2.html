@@ -19,7 +19,6 @@
         var input = document.getElementById('myInput');
         var placeholderText = input.dataset.placeholder;
 
-        // Показываем плейсхолдер как подсказку при фокусировке
         input.addEventListener('focus', function() {
             input.removeAttribute('placeholder');
             input.value = '';
@@ -27,7 +26,6 @@
             input.placeholder = placeholderText;
         });
 
-        // Скрываем подсказку при потере фокуса, если поле пустое
         input.addEventListener('blur', function() {
             if (input.value === '') {
                 input.removeAttribute('placeholder');
@@ -37,7 +35,6 @@
             }
         });
 
-        // Удаляем класс и текст плейсхолдера, когда пользователь начинает вводить текст
         input.addEventListener('input', function() {
             input.classList.remove('placeholder');
             input.removeAttribute('placeholder');
