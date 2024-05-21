@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Дата;</title>
+<title>Дата</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -43,30 +43,34 @@
     }
 </style>
 <script>
-  function formatDate(date) {
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
+  "use strict";
 
-    if (day < 10) {
-        day = '0' + day;
-    }
-    if (month < 10) {
-        month = '0' + month;
-    }
+  function formatDate(date){
+      let year = date.getFullYear();
+      let month = date.getMonth() + 1;
+      let day = date.getDate();
 
-    var formattedDate = day + '.' + month + '.' + year;
-    return formattedDate;
+      if(month < 10) month = '0' + month;
+      if(day < 10) day = '0' + day;
+
+      return `${day}.${month}.${year}`;
   }
 
-  window.onload = function() {
-    var currentDate = new Date();
-    document.getElementById("formattedDate").innerHTML = formatDate(currentDate);
-  };
+  function displayDate() {
+      const formattedDateElement = document.getElementById('formattedDate');
+      let d = new Date(2014, 4, 1); 
+      const formattedDate = formatDate(d);
+      formattedDateElement.textContent = formattedDate;
+      console.log(formattedDate);
+  }
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+      displayDate(); 
+  });
 </script>
 </head>
 <body>
-  <h1>Date Formatting</h1>
+  <h1>Дата:</h1>
   <div class="center">
     <p id="formattedDate"></p>
   </div>

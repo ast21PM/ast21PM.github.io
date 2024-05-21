@@ -10,20 +10,18 @@
 	<div id="text">Текст</div>
 
 	<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var button = document.getElementById('hider');
-        var text = document.getElementById('text');
-
-        button.addEventListener('click', function() {
-            if (text.style.display === 'none') {
+        let text = document.getElementById('text');
+        let hider = document.getElementById('hider');
+        hider.onclick = function(){
+            if(text.style.display == 'none'){
                 text.style.display = 'block';
-                button.value = 'Спрятать текст';
-            } else {
-                text.style.display = 'none';
-                button.value = 'Показать текст';
+                hider.value = 'Спрятать текст';
             }
-        });
-    });
-	</script>
+            else{
+                text.style.display = 'none';
+                hider.value = 'Показать текст';
+            }
+        }
+        </script>
 </body>
 </html>

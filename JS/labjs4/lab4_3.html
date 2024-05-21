@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-    "use strict";
-    let book1 = {};
-    // title: "AC/DC. В аду мне нравится больше",
-    // pubYear: 2021,
-    // price: 2550
-    //};
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      let book1 = {};
+      
+      
+      console.log(`Проверка на наличие свойств у объекта book1:
+      ${isEmpty(book1) ? 'Объект book1 не имеет свойств' : 'Объект book1 имеет свойства'}`);
 
-    let book1Message = isEmpty(book1) ? 'book1 не имеет свойств' : 'book1 имеет свойства';
-    console.log(book1Message);
+      book1.title = "Стив Джобс | Айзексон Уолтер";
+      book1.pubYear = 2011;
+      book1.price = 1900;
 
-    let book2 = {
-      title: "AC/DC. В аду мне нравится больше",
-      pubYear: 2021,
-      price: 2550,
-    };
+      let book2 = {
+        title: "AC/DC. В аду мне нравится больше",
+        pubYear: 2021,
+        price: 2550,
+      };
+      console.log(`Проверка на наличие свойств у объекта book2:
+      ${isEmpty(book2) ? 'Объект book2 не имеет свойств' : 'Объект book2 имеет свойства'}`);
+  
 
-    let book2Message = isEmpty(book2) ? 'book2 не имеет свойств' : 'book2 имеет свойства';
-    console.log(book2Message);
 
-    function isEmpty(obj) {
-      for (const key in obj) {
-          if (obj.hasOwnProperty(key)) return false;
+      function isEmpty(obj){
+        if(Object.keys(obj).length != 0 || Object.getOwnPropertySymbols(obj).length != 0) return false;
+        return true;
       }
-      return true;
-    }
-  </script>
-</body>
+
+    </script>
+  </body>
 </html>

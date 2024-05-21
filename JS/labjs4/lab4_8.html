@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict";
+    
+    class Book {
+      constructor(title, pubYear, price) {
+        this.title = title;
+        this.pubYear = pubYear;
+        this.price = price;
+      }
+      
+      static compare(book1, book2) {
+        return book1.pubYear - book2.pubYear;
+      }
+    }
+
+    let books = [
+      new Book("Book 1", 2014, 100),
+      new Book("Book 2", 2004, 150),
+      new Book("Book 3", 2023, 120)
+    ];
+
+    console.log("Before sorting:");
+    books.forEach(book => console.log(book.title + ": " + book.pubYear));
+
+    books.sort(Book.compare);
+
+    console.log("After sorting:");
+    books.forEach(book => console.log(book.title + ": " + book.pubYear));
+  </script>
+</body>
+</html>
