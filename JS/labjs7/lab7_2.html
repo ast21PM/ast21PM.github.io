@@ -1,61 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Подсказка-плейсхолдер</title>
-<style>
-    .placeholder {
-        color: blue;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подсказка</title>
+    <style>
+        ::placeholder {
+            color: rgb(0, 0, 0);
+        }
+        .label-right {
+            position: absolute;
+            right: -140px; 
+            top: 0;
+            visibility: hidden;
+        }
+        .form-container {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
 </head>
+
 <body>
 
-<input type="text" id="myInput" data-placeholder="Введите ваш текст сюда" class="placeholder">
+    <form id="form" class="form-container">
+        <input id="placeholder" type="text" data-placeholder="Введите имя">
+        <label for="placeholder" class="label-right">Введите ваше имя</label>   
+    </form>
+    
+    <script>
+      let form = document.getElementById("form");
+      let formField = form.getElementsByTagName('input')[0];
+      let label = form.getElementsByTagName('label')[0];
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var input = document.getElementById('myInput');
-        var placeholderText = input.dataset.placeholder;
+      formField.setAttribute('placeholder', formField.dataset.placeholder);
 
-        input.value = placeholderText;
+      formField.addEventListener('focus', () => {
+          label.style.visibility = 'visible';
+          formField.setAttribute('placeholder', '');
+      });
 
-        input.addEventListener('focus', function() {
-            if (input.value === placeholderText) {
-                input.value = '';
-                input.classList.remove('placeholder');
-            }
-        });
-
-        input.addEventListener('blur', function() {
-            if (input.value === '') {
-                input.value = placeholderText;
-                input.classList.add('placeholder');
-            }
-        });
-
-        input.addEventListener('input', function() {
-            if (input.value !== placeholderText) {
-                input.classList.remove('placeholder');
-            }
-        });
-
-        input.addEventListener('mouseleave', function() {
-            if (input.value === '') {
-                input.value = placeholderText;
-                input.classList.add('placeholder');
-            }
-        });
-
-        input.addEventListener('mouseenter', function() {
-            if (input.value === placeholderText) {
-                input.value = '';
-                input.classList.remove('placeholder');
-            }
-        });
-    });
-</script>
+      formField.addEventListener('blur', () => {
+          label.style.visibility = 'hidden';
+          formField.setAttribute('placeholder', formField.dataset.placeholder);
+      });
+    </script>
 
 </body>
 </html>
