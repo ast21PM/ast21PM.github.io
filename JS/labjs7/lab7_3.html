@@ -18,11 +18,14 @@
         padding: 10px;
         resize: none;
     }
+    .placeholder {
+        color: #aaa;
+    }
 </style>
 </head>
 <body>
 
-<div id="editableDiv" contenteditable="true" onkeydown="handleKeyDown(event)">
+<div id="editableDiv" contenteditable="true" onfocus="handleFocus()" onblur="handleBlur()" onkeydown="handleKeyDown(event)" class="placeholder">
     Кликните здесь и нажмите Ctrl+E для редактирования
 </div>
 <textarea id="editableTextarea" onkeydown="handleKeyDown(event)"></textarea>
@@ -30,23 +33,42 @@
 <script>
     const editableDiv = document.getElementById('editableDiv');
     const editableTextarea = document.getElementById('editableTextarea');
+    const placeholderText = 'Кликните здесь и нажмите Ctrl+E для редактирования';
+
+    function handleFocus() {
+        if (editableDiv.innerHTML.trim() === placeholderText) {
+            editableDiv.innerHTML = '';
+            editableDiv.classList.remove('placeholder');
+        }
+    }
+
+    function handleBlur() {
+        if (editableDiv.innerHTML.trim() === '') {
+            editableDiv.innerHTML = placeholderText;
+            editableDiv.classList.add('placeholder');
+        } else {
+            editableDiv.classList.remove('placeholder');
+        }
+    }
 
     function handleKeyDown(event) {
         if (event.ctrlKey && event.key === 'e') {
             event.preventDefault();
             editableDiv.style.display = 'none';
             editableTextarea.style.display = 'block';
-            editableTextarea.value = editableDiv.innerHTML;
+            editableTextarea.value = editableDiv.innerHTML.trim() === placeholderText ? '' : editableDiv.innerHTML;
             editableTextarea.focus();
         } else if (event.ctrlKey && event.key === 's' && editableTextarea.style.display === 'block') {
             event.preventDefault();
             editableDiv.innerHTML = editableTextarea.value;
             editableDiv.style.display = 'block';
             editableTextarea.style.display = 'none';
+            handleBlur();
         } else if (event.key === 'Escape') {
             event.preventDefault();
             editableDiv.style.display = 'block';
             editableTextarea.style.display = 'none';
+            handleBlur();
         }
     }
 </script>
