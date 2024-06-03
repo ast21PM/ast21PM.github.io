@@ -25,10 +25,10 @@
 </head>
 <body>
 
-<div id="editableDiv" contenteditable="true" onfocus="handleFocus()" onblur="handleBlur()" onkeydown="handleKeyDown(event)" class="placeholder">
+<div id="editableDiv" contenteditable="true" class="placeholder">
     Кликните здесь и нажмите Ctrl+E для редактирования
 </div>
-<textarea id="editableTextarea" onkeydown="handleKeyDown(event)"></textarea>
+<textarea id="editableTextarea"></textarea>
 
 <script>
     const editableDiv = document.getElementById('editableDiv');
@@ -54,10 +54,12 @@
     function handleKeyDown(event) {
         if (event.ctrlKey && event.key === 'e') {
             event.preventDefault();
-            editableDiv.style.display = 'none';
-            editableTextarea.style.display = 'block';
-            editableTextarea.value = editableDiv.innerHTML.trim() === placeholderText ? '' : editableDiv.innerHTML;
-            editableTextarea.focus();
+            if (editableTextarea.style.display !== 'block') {
+                editableDiv.style.display = 'none';
+                editableTextarea.style.display = 'block';
+                editableTextarea.value = editableDiv.innerHTML.trim() === placeholderText ? '' : editableDiv.innerHTML;
+                editableTextarea.focus();
+            }
         } else if (event.ctrlKey && event.key === 's' && editableTextarea.style.display === 'block') {
             event.preventDefault();
             editableDiv.innerHTML = editableTextarea.value;
@@ -71,6 +73,10 @@
             handleBlur();
         }
     }
+
+    document.addEventListener('keydown', handleKeyDown);
+    editableDiv.addEventListener('focus', handleFocus);
+    editableDiv.addEventListener('blur', handleBlur);
 </script>
 
 </body>
