@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Язык программирования PHP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #f7f7f7;
+        }
+
+        h1 {
+            color: #000000;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1.dark-mode {
+            color: #f7f7f7;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a.dark-mode {
+            color: #79b8ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Язык программирования PHP</h1>
+    <ol>
+        <li><a href="...">Задание 1-5 - Только кодом на github</a></li>
+    </ol>
+
+    <button id="theme-toggle" style="position: absolute; top: 20px; right: 20px;">🌙</button>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            toggleButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
