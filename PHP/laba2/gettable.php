@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,73 +12,72 @@
             margin-bottom: 20px;
         }
 
-        th,
-        td {
+        th, td {
             padding: 10px;
             border: 1px solid black;
         }
 
         th {
-            background-color: yellow;
+            background-color: yellow; 
         }
 
         .header-red {
             background-color: red;
         }
+
+        .header-yellow {
+            background-color: yellow; 
+        }
     </style>
 </head>
-
 <body>
     <h1>Таблица умножения</h1>
 
-    <?php
+    <?php 
 
-    function generateMultiplicationTable($size) {
+    function generateMultiplicationTable($size, $headerClass) {
         echo "<table><tbody>";
-        
 
+        // Заголовок таблицы
         echo "<tr>";
-        echo "<th class='header-red'></th>"; 
+        echo "<th class='$headerClass'></th>";  
         for ($i = 1; $i <= $size; $i++) {
-            echo "<th class='header-red'>$i</th>"; 
+            echo "<th class='$headerClass'>$i</th>";  
         }
         echo "</tr>";
-        
 
+        // Строки таблицы
         for ($i = 1; $i <= $size; $i++) {
             echo "<tr>";
-            echo "<th class='header-red'>$i</th>"; 
+            echo "<th class='$headerClass'>$i</th>";  
             for ($j = 1; $j <= $size; $j++) {
-                echo "<td>" . ($i * $j) . "</td>"; 
+                echo "<td>" . ($i * $j) . "</td>";  
             }
             echo "</tr>";
         }
-        
-        echo "</tbody></table>";
-    }
 
+        echo "</tbody></table>"; 
+    }
 
     $tableCount = 0;
 
 
-    generateMultiplicationTable(5);
+    generateMultiplicationTable(5, 'header-yellow');
     $tableCount++;
 
 
-    generateMultiplicationTable(10);
+    generateMultiplicationTable(10, 'header-red');
     $tableCount++;
 
 
-    generateMultiplicationTable(8);
+    generateMultiplicationTable(8, 'header-yellow');
     $tableCount++;
 
 
-    generateMultiplicationTable(5);
+    generateMultiplicationTable(5, 'header-yellow');
     $tableCount++;
 
-
-    echo "<hr>Таблица была отрисована $tableCount раз.";
-    ?>
+    echo "<hr>Таблица была отрисована $tableCount раз."; 
+    ?> 
 </body>
-
 </html>
