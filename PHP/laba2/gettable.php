@@ -64,9 +64,9 @@
 
 
     $totalCount = 0;
-    $totalCount += generateMultiplicationTable(5, 'header-yellow');
-    $totalCount += generateMultiplicationTable(10, 'header-red');
-    $totalCount += generateMultiplicationTable(8, 'header-yellow');
+    generateMultiplicationTable(5, 'header-yellow');
+    generateMultiplicationTable(10, 'header-red');
+    generateMultiplicationTable(8, 'header-yellow');
     $totalCount += generateMultiplicationTable(5, 'header-yellow');
 
     echo "<hr>Таблица была отрисована $totalCount раза."; 
