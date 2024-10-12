@@ -36,7 +36,7 @@
     <?php 
 
     function generateMultiplicationTable($size, $headerClass) {
-        static $tableCount = 0; // Статическая переменная
+        static $tableCount = 0; 
 
         echo "<table><tbody>";
 
