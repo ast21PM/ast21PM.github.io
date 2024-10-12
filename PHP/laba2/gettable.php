@@ -38,7 +38,7 @@
     function generateMultiplicationTable($size, $headerClass) {
         echo "<table><tbody>";
 
-        // Заголовок таблицы
+  
         echo "<tr>";
         echo "<th class='$headerClass'></th>";  
         for ($i = 1; $i <= $size; $i++) {
@@ -46,7 +46,6 @@
         }
         echo "</tr>";
 
-        // Строки таблицы
         for ($i = 1; $i <= $size; $i++) {
             echo "<tr>";
             echo "<th class='$headerClass'>$i</th>";  
