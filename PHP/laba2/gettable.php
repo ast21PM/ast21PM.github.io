@@ -36,9 +36,10 @@
     <?php 
 
     function generateMultiplicationTable($size, $headerClass) {
+        static $tableCount = 0; // Статическая переменная
+
         echo "<table><tbody>";
 
-  
         echo "<tr>";
         echo "<th class='$headerClass'></th>";  
         for ($i = 1; $i <= $size; $i++) {
@@ -56,27 +57,19 @@
         }
 
         echo "</tbody></table>"; 
+
+        $tableCount++; 
+        return $tableCount; 
     }
 
-    $tableCount = 0;
 
+    $totalCount = 0;
+    $totalCount += generateMultiplicationTable(5, 'header-yellow');
+    $totalCount += generateMultiplicationTable(10, 'header-red');
+    $totalCount += generateMultiplicationTable(8, 'header-yellow');
+    $totalCount += generateMultiplicationTable(5, 'header-yellow');
 
-    generateMultiplicationTable(5, 'header-yellow');
-    $tableCount++;
-
-
-    generateMultiplicationTable(10, 'header-red');
-    $tableCount++;
-
-
-    generateMultiplicationTable(8, 'header-yellow');
-    $tableCount++;
-
-
-    generateMultiplicationTable(5, 'header-yellow');
-    $tableCount++;
-
-    echo "<hr>Таблица была отрисована $tableCount раз."; 
+    echo "<hr>Таблица была отрисована $totalCount раза."; 
     ?> 
 </body>
 </html>
