@@ -6,7 +6,6 @@ if ($mysqli->connect_error) {
     die("Ошибка подключения: " . $mysqli->connect_error);
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['name'], $_POST['email'], $_POST['msg'])) {
     $name = trim(htmlspecialchars(mysqli_real_escape_string($mysqli, $_POST['name'])));
     $email = trim(htmlspecialchars(mysqli_real_escape_string($mysqli, $_POST['email'])));
@@ -20,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['name'], $_POST['email'
     }
 }
 
-
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
     $sql = "DELETE FROM msgs WHERE id=$id";
@@ -28,7 +26,6 @@ if (isset($_GET['delete'])) {
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
-
 
 $sql = "SELECT * FROM msgs ORDER BY id DESC";
 $result = $mysqli->query($sql);
@@ -61,6 +58,9 @@ $result = $mysqli->query($sql);
         }
         h1 {
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         form {
             margin-bottom: 20px;
@@ -109,7 +109,7 @@ $result = $mysqli->query($sql);
             top: 10px;
         }
         .theme-toggle {
-            margin-top: 10px;
+            margin-left: 10px;
             cursor: pointer;
             background-color: transparent;
             border: none;
@@ -147,7 +147,10 @@ $result = $mysqli->query($sql);
 <body>
 
 <div class="container">
-    <h1>Гостевая книга</h1>
+    <h1>
+        Гостевая книга
+        <button class="theme-toggle" id="theme-toggle">🌙</button>
+    </h1>
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         Ваше имя:<br>
@@ -175,8 +178,6 @@ $result = $mysqli->query($sql);
     <?php else: ?>
         <p>Записей пока нет.</p>
     <?php endif; ?>
-    
-    <button class="theme-toggle" id="theme-toggle">🌙</button>
 </div>
 
 <script>
