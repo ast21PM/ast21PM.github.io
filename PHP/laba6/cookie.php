@@ -17,7 +17,7 @@ $visits++;
 setcookie('visits', $visits, time() + 86400); 
 setcookie('lastVisit', date('d-m-Y H:i:s'), time() + 86400);
 
-// HTML-код
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
