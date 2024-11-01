@@ -11,9 +11,9 @@
         $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 
         if (mail($to, $subject, $body, $headers)) {
-            $message = "Сообщение доставлено";
+            $message = "Ваше сообщение было успешно доставлено";
         } else {
-            $message = "Ошибка";
+            $message = "ошибка при доставлении письма";
         }
     }
 ?>
@@ -31,17 +31,12 @@
 <body>
 
   <header>
-    <!-- Верхняя часть страницы -->
     <img src="logo.png" width="130" height="80" alt="Наш логотип" class="logo">
     <span class="slogan">приходите к нам учиться</span>
-    <!-- Верхняя часть страницы -->
   </header>
 
   <section>
-    <!-- Заголовок -->
     <h1>Обратная связь</h1>
-    <!-- Заголовок -->
-    <!-- Область основного контента -->
     <h3>Адрес</h3>
     <address>123456 Москва, Малый Американский переулок 21</address>
     <h3>Задайте вопрос</h3>
@@ -58,11 +53,9 @@
       <input type='submit' value='Отправить'>
       <span><?php echo $message; ?></span>
     </form>
-    <!-- Область основного контента -->
   </section>
   <nav>
     <h2>Навигация по сайту</h2>
-    <!-- Меню -->
     <ul>
       <li><a href='index.php'>Домой</a>
       </li>
@@ -75,12 +68,9 @@
       <li><a href='calc.php'>Калькулятор</a>
       </li>
     </ul>
-    <!-- Меню -->
   </nav>
   <footer>
-    <!-- Нижняя часть страницы -->
     &copy; Супер Мега Веб-мастер, 2000 &ndash; 20xx
-    <!-- Нижняя часть страницы -->
   </footer>
 </body>
 

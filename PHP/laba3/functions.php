@@ -1,21 +1,9 @@
 <?php
-
+echo "<pre>";
 $extensions = get_loaded_extensions();
-
-
-foreach ($extensions as $extension) {
-    echo "<h2>Модуль: $extension</h2>";
-    
-    $functions = get_extension_funcs($extension);
-    
-    if ($functions !== false) {
-        echo "<ul>";
-        foreach ($functions as $function) {
-            echo "<li>$function</li>";
-        }
-        echo "</ul>";
-    } else {
-        echo "Функции для данного модуля недоступны.<br>";
-    }
+foreach ($extensions as $extension => $value) {
+    echo "<h2>" .$value . "</h2>";
+    print_r(get_extension_funcs($value));
 }
+echo "</pre>";
 ?>
