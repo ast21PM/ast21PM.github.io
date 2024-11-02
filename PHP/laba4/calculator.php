@@ -1,19 +1,15 @@
 <?php
 declare(strict_types=1);
 
-
 $result = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
     $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
     $operator = htmlspecialchars($_POST['operator']);
 
-
     if ($num1 === false || $num2 === false) {
         $result = 'Ошибка: введите корректные числа.';
     } else {
-  
         switch ($operator) {
             case '+':
                 $result = $num1 + $num2;
@@ -42,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор</title>
     <style>
@@ -139,6 +134,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .result.dark-mode {
             color: #ffffff; 
         }
+        .error {
+            color: #f44336; 
+        }
     </style>
 </head>
 <body>
@@ -146,14 +144,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="calculator-container">
     <h1>Калькулятор</h1>
 
-    <?php if ($result !== ''): ?>
-        <p class="result <?= isset($_POST['theme']) && $_POST['theme'] === 'dark' ? 'dark-mode' : '' ?>">
-            <?= is_numeric($result) ? "Результат: $result" : "<span class='error'>$result</span>" ?>
-        </p>
-    <?php endif; ?>
+    <p class="result <?= isset($_POST['theme']) && $_POST['theme'] === 'dark' ? 'dark-mode' : '' ?> error">
+        <?= "Результат: $result" ?>
+    </p>
 
     <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-
         <label for="num1">Число 1</label>
         <input type="text" name="num1" id="num1" required>
 
