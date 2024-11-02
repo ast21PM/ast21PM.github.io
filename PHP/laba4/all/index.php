@@ -69,7 +69,7 @@ switch ($id) {
             case 'calc':
                 ?>
                 <!-- Калькулятор -->
-                <div id="calculator">
+                <div id="calc">
                     <form action="calc_result.php" method="post">
                         <label for="num1">Число 1</label>
                         <input type="text" id="num1" name="num1">
