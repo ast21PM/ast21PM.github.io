@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title>Контакты</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <!-- Область основного контента -->
-    <h3>Адрес</h3>
+<!-- Область основного контента -->
+<h3>Адрес</h3>
     <address>123456 Москва, Малый Американский переулок 21</address>
     <h3>Задайте вопрос</h3>
     <form action='' method='post'>
@@ -24,7 +15,4 @@
       <br>
       <input type='submit' value='Отправить'>
     </form>
-    <!-- Область основного контента -->
-</body>
-
-</html>
+<!-- Область основного контента -->

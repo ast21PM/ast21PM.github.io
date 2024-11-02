@@ -1,49 +1,55 @@
 <?php
-$cols = 10;
-$rows = 10;
-$color = '#ffff00';
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	$cols = abs((int) $_POST['cols']);
-	$rows = abs((int) $_POST['rows']);
-	$color = trim(strip_tags($_POST['color']));
+$result = null;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
+    $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
+
+    if ($num1 === false || $num2 === false) {
+        echo "Введите корректные числа.";
+    } else {
+        switch ($_POST["operator"]) {
+            case '+':
+                $result = $num1 + $num2;
+                break;
+            case '-':
+                $result = $num1 - $num2;
+                break;
+            case '*':
+                $result = $num1 * $num2;
+                break;
+            case '/':
+                if ($num2 == 0) {
+                    echo "Ошибка: деление на ноль.";
+                } else {
+                    $result = $num1 / $num2;
+                }
+                break;
+        }
+    }
+}
+
+if ($result !== null) {
+    echo "<h2>Результат: $result</h2>";
 }
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Таблица умножения</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Область основного контента -->
-    <form action='<?=$_SERVER['REQUEST_URI']?>' method='POST'>
-      <label>Количество колонок: </label>
-      <br>
-      <input name='cols' type='text' value="<?=@$_POST['cols']?>">
-      <br>
-      <label>Количество строк: </label>
-      <br>
-      <input name='rows' type='text' value="<?=@$_POST['rows']?>">
-      <br>
-      <label>Цвет: </label>
-      <br>
-      <input name='color' type='color' value="<?=@$_POST['color']?>" list="listColors">
-	<datalist id="listColors">
-		<option>#ff0000</option>/>
-		<option>#00ff00</option>
-		<option>#0000ff</option>
-	</datalist>
-      <br>
-      <br>
-      <input type='submit' value='Создать'>
-    </form>
-    <br>
-    <!-- Таблица -->
-    <? getTable($cols, $rows, $color) ?>
-    <!-- Таблица -->
-    <!-- Область основного контента -->
-</body>
-</html>
+
+<form action="index.php?id=calc" method="post">
+
+<p><label for="num1">Число 1</label><br>
+<input type="number" name="num1" id="num1" required></p>
+
+<p><label for="operator">Оператор</label><br>
+<select name="operator" id="operator">
+    <option value="+" selected >+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select></p>
+
+<p><label for="num2">Число 2</label><br>
+<input type="number" name="num2" id="num2" required></p>
+
+<button type="submit">Считать!</button>
+
+</form>
