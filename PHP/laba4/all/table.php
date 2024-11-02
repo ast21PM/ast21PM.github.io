@@ -1,55 +1,38 @@
 <?php
-$result = null;
+$cols = 10;
+$rows = 10;
+$color = '#ff0000';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
-    $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
-
-    if ($num1 === false || $num2 === false) {
-        echo "Введите корректные числа.";
-    } else {
-        switch ($_POST["operator"]) {
-            case '+':
-                $result = $num1 + $num2;
-                break;
-            case '-':
-                $result = $num1 - $num2;
-                break;
-            case '*':
-                $result = $num1 * $num2;
-                break;
-            case '/':
-                if ($num2 == 0) {
-                    echo "Ошибка: деление на ноль.";
-                } else {
-                    $result = $num1 / $num2;
-                }
-                break;
-        }
-    }
-}
-
-if ($result !== null) {
-    echo "<h2>Результат: $result</h2>";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $cols = abs((int) $_POST['cols']);
+    $rows = abs((int) $_POST['rows']);
+    $color = trim(strip_tags($_POST['color']));
 }
 ?>
-
-<form action="index.php?id=calc" method="post">
-
-<p><label for="num1">Число 1</label><br>
-<input type="number" name="num1" id="num1" required></p>
-
-<p><label for="operator">Оператор</label><br>
-<select name="operator" id="operator">
-    <option value="+" selected >+</option>
-    <option value="-">-</option>
-    <option value="*">*</option>
-    <option value="/">/</option>
-</select></p>
-
-<p><label for="num2">Число 2</label><br>
-<input type="number" name="num2" id="num2" required></p>
-
-<button type="submit">Считать!</button>
-
-</form>
+    <!-- Область основного контента -->
+    <form action='<?=$_SERVER['REQUEST_URI']?>' method='POST'>
+      <label>Количество колонок: </label>
+      <br>
+      <input name='cols' type='number' value="<?= htmlspecialchars($cols) ?>">
+      <br>
+      <label>Количество строк: </label>
+      <br>
+      <input name='rows' type='number' value="<?= htmlspecialchars($rows) ?>">
+      <br>
+      <label>Цвет: </label>
+      <br>
+      <input name='color' type='color' value="<?= htmlspecialchars($color) ?>" list="listColors">
+	<datalist id="listColors">
+		<option>#ff0000</option>
+		<option>#00ff00</option>
+		<option>#0000ff</option>
+	</datalist>
+      <br>
+      <br>
+      <input type='submit' value='Создать'>
+    </form>
+    <br>
+    <!-- Таблица -->
+    <? getTable($cols, $rows, $color) ?>
+    <!-- Таблица -->
+    <!-- Область основного контента -->
