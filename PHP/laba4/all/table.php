@@ -1,7 +1,7 @@
 <?php
-$cols = 10;
-$rows = 10;
-$color = '#ff0000';
+$cols = 5;
+$rows = 5;
+$color = '#0000ff';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cols = abs((int) $_POST['cols']);
