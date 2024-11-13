@@ -1,5 +1,7 @@
 <?php
-$mysqli = new mysqli("localhost", "f1036422_db", "qwerty123456", "f1036422_db");
+require_once 'config.php';
+
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $mysqli->set_charset("utf8");
 
 if ($mysqli->connect_error) {
