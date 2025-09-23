@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Атрибут target</title>
+</head>
+<body>
+<h1>Атрибут target</h1>
+<p>По умолчанию, при переходе по ссылке документ открывается в текущем окне или 
+  фрейме. При необходимости, это условие может быть изменено атрибутом <code>target</code> 
+  тега <code>&lt;a&gt;</code>. Этот атрибут может принимать следующие 
+значения:</p>
+<p><code>_blank</code> &#8212; загружает страницу в новое окно браузера;  </p>
+
+<p><code>_self</code> &#8212; загружает страницу в текущее окно;</p>
+<p> <code>_parent</code> &#8212; загружает страницу во фрейм-родитель;</p>
+<p> <code>_top</code> &#8212; отменяет все фреймы и загружает страницу в полном 
+  окне браузера.</p>
+
+<p>В примере 1 показано создание ссылки на сайт, который открывается в новом окне.</p>
+<p>Пример 1. Открытие документа в новом окне</p>
+
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+
+  &lt;title&gt;Новое окно&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.htmlbook.ru&quot; target=&quot;_blank&quot;&gt;Ссылка открывает новое 
+     окно на сайт htmlbook.ru&lt;/a&gt;&lt;/p&gt; 
+  &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+<p>Для создания валидного кода атрибут <code>target</code> может  использоваться только при переходном <code>&lt;!DOCTYPE</code>&gt;, как показано во всех примерах этой статьи.</p>
+<p>Если на сайте используются фреймы, то в качестве значения <code>target</code> можно использовать имя фрейма (пример&nbsp;2).</p>
+
+<p>Пример 2. Открытие документа во фрейме</p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+
+  &lt;title&gt;Открытие файла во фрейме&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+   &lt;p&gt;&lt;a href=&quot;http://htmlbook.ru&quot; target=&quot;newframe&quot;&gt;Сайт htmlbook.ru&lt;/a&gt;&lt;/p&gt; 
+ &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+<p>Ссылка в примере 2 ведет на сайт htmlbook.ru, открывающийся во фрейме с 
+  именем <code>newframe</code>.</p>
+
+<p>Когда у  <code>target</code> указано неизвестное значение, 
+  например, имя фрейма набрано с ошибкой, то это приводит к тому, что ссылка открывается 
+  в новом окне.</p>
+  
+<p>Если на веб-странице необходимо сделать, чтобы все ссылки открывались в новом 
+  окне,  нет необходимости добавлять во все теги <code>&lt;a&gt;</code> <code>target=&quot;_blank&quot;</code>. Код можно сократить, 
+  если вначале страницы добавить строку <code>&lt;base target=&quot;_blank&quot;&gt;</code>, 
+  как показано в примере&nbsp;3</p>
+
+  
+<p>Пример 3. Использование тега &lt;base&gt;</p>
+<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+
+  &lt;title&gt;Открытие файла во фрейме&lt;/title&gt;
+  &lt;base target=&quot;_blank&quot;&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;p&gt;&lt;a href=&quot;1.html&quot;&gt;Ссылка откроется в новом окне&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;2.html&quot; target=&quot;_self&quot;&gt;Ссылка откроется в текущем окне&lt;/a&gt;&lt;/p&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>Сделать так, чтобы ссылка открывалась в текущем окне, в таком случае можно, 
+  если добавить к тегу <code>&lt;a&gt;</code> атрибут <code>target=&quot;_self&quot;</code>, 
+как показано в данном примере.</p>
+</body>
+</html>

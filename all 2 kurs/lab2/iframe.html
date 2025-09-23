@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Использование iframe</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .content iframe,
+        .sidebar iframe {
+            width: 800px;
+            height: 600px;
+        }
+        .sidebar iframe {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+<h1>Добавление встроенных фреймов</h1>
+<p>Один из способов добавления содержимого на страницу — это внедрить другую HTML-страницу в текущую. Это делается с помощью встроенного фрейма или элемента <span class="tag">&lt;iframe&gt;</span>. Данный элемент принимает URL другой HTML-страницы в значении атрибута <span class="attribute">src</span>&nbsp;— это вызывает содержимое из внедрённой HTML-страницы для отображения на текущей странице. Значение атрибута <span class="attribute">src</span> может быть URL относительно страницы, где появляется элемент <span class="tag">&lt;iframe&gt;</span> или абсолютным адресом для исключительно внешней страницы.</p><p>Многие страницы используют элемент <span class="tag">&lt;iframe&gt;</span> для внедрения медиа-контента на страницу с внешнего сайта, вроде Google Maps, YouTube и др.</p>
+
+<h2>Демонстрация добавления встроенного фрейма</h2>
+<div class="container" style="text-align: center;">
+    <div class="content">
+        <iframe src="https://www.youtube.com/embed/t6NIAlyQ15k"></iframe>
+        <figcaption>Видео с YouTube</figcaption>
+    </div>
+    <div class="sidebar">
+        <iframe src="https://yandex.ru/map-widget/v1/?from=api-maps&ll=36.063909%2C52.951255&mode=search&oid=1030860442&ol=biz&utm_source=api-maps&z=17" frameborder="1" allowfullscreen="true"></iframe>
+        <figcaption>Карта с Яндекс карты.</figcaption>
+    </div>
+</div>
+</body>
+</html>
