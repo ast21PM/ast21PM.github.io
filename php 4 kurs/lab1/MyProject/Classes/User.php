@@ -12,7 +12,7 @@ class User extends AbstractUser {
     private $password;
     
     public function __construct($name, $login, $password) {
-        self::$count++;
+        static::$count++;
         $this->name = $name;
         $this->login = $login;
         $this->password = $password;
