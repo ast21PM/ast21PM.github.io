@@ -15,10 +15,12 @@ spl_autoload_register('my_autoloader');
 
 $user1 = new User("Ivan", "ivanovivan", "password1");
 $user2 = new User("Alex", "alexJumboo", "password2");
+$user3 = new User("Fox", "foxiser", "password3");
 echo "<br>";
 
 $user1->showInfo();
 $user2->showInfo();
+$user3->showInfo();
 echo "<br>";
 
 $user = new SuperUser("Petya", "petya_admin", "password1", "admin");
