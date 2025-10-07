@@ -12,7 +12,6 @@ class SuperUser extends User implements SuperUserInterface {
 
     public function __construct($name, $login, $password, $role) {
         parent::__construct($name, $login, $password);
-        self::$count++;
         $this->role = $role;
     }
 
