@@ -1,0 +1,36 @@
+@startuml
+!pragma layout smetana
+
+package "MyProject\\Classes" {
+  
+  abstract class AbstractUser {
+    + showInfo(): void
+  }
+
+  interface SuperUserInterface {
+    + getInfo(): array
+  }
+
+  class User {
+    - password
+    + name
+    + login
+    + {static} $count: int
+    + construct(name, login, password)
+    + showInfo(): void
+    + destruct()
+  }
+
+  class SuperUser {
+    + role
+    + {static} $count: int
+    + SuperUser(name, login, password, role)
+    + showInfo(): void
+    + getInfo(): array()
+  }
+
+  AbstractUser <|-- User
+  User <|-- SuperUser
+  SuperUserInterface <.. SuperUser
+}
+@enduml
