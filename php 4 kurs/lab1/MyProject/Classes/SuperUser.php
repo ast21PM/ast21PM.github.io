@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace MyProject\Classes;
 
-require_once 'User.php';
-require_once 'SuperUserInterface.php';
 
 class SuperUser extends User implements SuperUserInterface {
     public static int $count = 0;

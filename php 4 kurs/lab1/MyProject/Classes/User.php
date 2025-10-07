@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace MyProject\Classes;
 
-require_once 'AbstractUser.php';
 
 class User extends AbstractUser {
     public static int $count = 0;
