@@ -1,0 +1,155 @@
+@startuml
+package singleton as singleton {
+    class "Settings" as singleton_Settings {
+      -_object : ?Settings
+      -_settings : ?array
+      -__construct()
+      -__clone()
+      {static} +get()
+      +__get(key)
+      +__set(key, value)
+    }
+  }
+  package mvc as mvc {
+    package decorators as mvc.decorators {
+      class "UserDecorator" as mvc_decorators_UserDecorator {
+        +user : 
+        +__construct(user)
+        +title()
+        +body()
+        +items()
+      }
+      class "DecoratorFactory" as mvc_decorators_DecoratorFactory {
+        {static} +create(class, model)
+        {abstract} +title()
+        {abstract} +body()
+        {abstract} +items()
+      }
+      class "UsersDecorator" as mvc_decorators_UsersDecorator {
+        +users : 
+        +__construct(users)
+        +title()
+        +collection_render(call, separator)
+        +body()
+        +items()
+      }
+    }
+    package views as mvc.views {
+      class "HtmlView" as mvc_views_HtmlView {
+        #replacements : 
+        +__construct(decorator)
+        +render()
+      }
+      class "RssView" as mvc_views_RssView {
+        #replacements : 
+        +__construct(decorator)
+        +render()
+      }
+      class "UserHtmlView" as mvc_views_UserHtmlView {
+      }
+      class "UsersHtmlView" as mvc_views_UsersHtmlView {
+      }
+      class "UsersRssView" as mvc_views_UsersRssView {
+      }
+      class "UserRssView" as mvc_views_UserRssView {
+      }
+      class "ViewFactory" as mvc_views_ViewFactory {
+        {abstract} +render()
+        {static} +create(type, class, decorator)
+      }
+    }
+    package controllers as mvc.controllers {
+      class "Router" as mvc_controllers_Router {
+        +model : string
+        +ext : ?string
+        +id : ?int
+        {static} +parse(path)
+        -__construct(model, ext, id)
+      }
+      class "Controller" as mvc_controllers_Controller {
+        +path : string
+        +router : Router
+        +model : object
+        +__construct(path)
+        +render()
+      }
+    }
+    package models as mvc.models {
+      class "User" as mvc_models_User {
+        +email : string
+        -password : string
+        +first_name : ?string
+        +last_name : ?string
+        +__construct(email, password, first_name, last_name)
+      }
+      class "Users" as mvc_models_Users {
+        +collection : 
+        +users : ?array
+        +__construct(users)
+      }
+    }
+  }
+  package factory as factory {
+    class "Router" as factory_Router {
+      {static} +parse(url)
+      {abstract} +render()
+    }
+    package models as factory.models {
+      class "Pages" as factory_models_Pages {
+        +pages : ?array
+        +__construct(pages)
+        +render()
+      }
+      class "Page" as factory_models_Page {
+        +title : string
+        +content : string
+        +__construct(title, content)
+        +render()
+      }
+      class "User" as factory_models_User {
+        +email : string
+        -password : string
+        +first_name : ?string
+        +last_name : ?string
+        +__construct(email, password, first_name, last_name)
+        +render()
+      }
+      class "Users" as factory_models_Users {
+        +users : ?array
+        +__construct(users)
+      }
+      class "Collection" as factory_models_Collection {
+        +collection : ?array
+        +__construct(collection)
+        +renders()
+        +render()
+      }
+    }
+  }
+  factory_Router <|-- factory_models_Collection
+  factory_Router <|-- factory_models_Page
+  factory_Router <|-- factory_models_User
+  factory_models_Collection <|-- factory_models_Pages
+  factory_models_Collection <|-- factory_models_Users
+  factory_models_Pages ..> factory_models_Page
+  factory_models_Users ..> factory_models_User
+  mvc_controllers_Controller ..> mvc_controllers_Router
+  mvc_controllers_Controller ..> mvc_decorators_DecoratorFactory
+  mvc_controllers_Controller ..> mvc_views_ViewFactory
+  mvc_controllers_Router ..> mvc_controllers_Router
+  mvc_decorators_DecoratorFactory <|-- mvc_decorators_UserDecorator
+  mvc_decorators_DecoratorFactory <|-- mvc_decorators_UsersDecorator
+  mvc_decorators_UserDecorator ..> mvc_models_User
+  mvc_decorators_UsersDecorator ..> mvc_decorators_UserDecorator
+  mvc_decorators_UsersDecorator ..> mvc_models_Users
+  mvc_models_Users ..> mvc_models_User
+  mvc_views_HtmlView <|-- mvc_views_UserHtmlView
+  mvc_views_HtmlView <|-- mvc_views_UsersHtmlView
+  mvc_views_RssView <|-- mvc_views_UserRssView
+  mvc_views_RssView <|-- mvc_views_UsersRssView
+  mvc_views_ViewFactory ..> mvc_decorators_DecoratorFactory
+  mvc_views_ViewFactory ..> mvc_views_ViewFactory
+  mvc_views_ViewFactory <|-- mvc_views_HtmlView
+  mvc_views_ViewFactory <|-- mvc_views_RssView
+  singleton_Settings ..> singleton_Settings
+@enduml
