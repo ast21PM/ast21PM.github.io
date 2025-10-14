@@ -1,19 +1,16 @@
 <?php
-$deleteId = isset($_GET['delete']) ? $_GET['delete'] : null;
-
-if ($deleteId === null || !is_numeric($deleteId) || intval($deleteId) <= 0) {
+if (!isset($_GET['delete']) || !is_numeric($_GET['delete']) || intval($_GET['delete']) <= 0) {
     header("Location: news.php");
     exit();
 }
 
-$deleteId = intval($deleteId);
+$deleteId = intval($_GET['delete']);
+$result = $news->deleteNews($deleteId);
 
-$deleteResult = $news->deleteNews($deleteId);
-
-if ($deleteResult === false) {
-    $errMsg = "Произошла ошибка при удалении новости";
-} else {
-    header("локация: news.php");
+if ($result) {
+    header("Location: news.php");
     exit();
+} else {
+    $errMsg = "Произошла ошибка при удалении новости";
 }
 ?>
