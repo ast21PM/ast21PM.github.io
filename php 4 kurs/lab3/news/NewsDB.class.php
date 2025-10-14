@@ -27,7 +27,6 @@ class NewsDB implements INewsDB {
     }
 
     private function initDatabase() {
-        // Проверяем, существуют ли таблицы
         $tableExists = $this->_db->querySingle("SELECT name FROM sqlite_master WHERE type='table' AND name='msgs'");
         
         if (!$tableExists) {
