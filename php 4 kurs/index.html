@@ -7,120 +7,226 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+        :root {
+            --primary: #338cff;
+            --accent: #5ab2ff;
+            --bg-main: #080a11;
+            --bg-card: #10131a;
+            --border: #222739;
+            --radius: 13px;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #0d0d0d;
-            color: #cccccc;
+            margin: 0;
+            min-height: 100vh;
+            padding: 0;
+            background: var(--bg-main);
+            color: #b7c3df;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 153, 255, 0.3);
-            border: 1px solid rgba(0, 153, 255, 0.5);
+            background: var(--bg-card);
+            padding: 34px 24px;
+            border-radius: var(--radius);
+            max-width: 820px;
+            width: 100%;
+            border: 1.5px solid var(--border);
+            box-shadow: 0 1px 4px rgba(40, 55, 82, 0.11);
         }
 
         h1 {
             text-align: center;
-            color: #66c0ff;
-            margin-bottom: 40px;
+            color: var(--primary);
+            margin-bottom: 34px;
             font-weight: 700;
-            text-shadow: none;
+            font-size: 2em;
+            letter-spacing: 0.2px;
         }
 
-        h2 {
-            color: #88bfff;
-            border-bottom: 1px solid #557799;
-            padding-bottom: 8px;
-            margin-top: 40px;
+        .lab-header {
+            color: var(--accent);
+            border-bottom: 1px solid #27374d;
+            padding-bottom: 5px;
+            margin: 0;
+            margin-top: 32px;
             font-weight: 600;
+            font-size: 1.13em;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: color 0.18s;
+        }
+        .lab-header:hover {
+            color: var(--primary);
+        }
+        .arrow {
+            transition: transform 0.22s cubic-bezier(.73,.28,.38,.97);
+            font-size: 1em;
+            margin-left: 8px;
+        }
+        .lab-header.expanded .arrow {
+            transform: rotate(90deg);
+        }
+
+        .lab-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.33s cubic-bezier(.4,.69,.31,1), opacity 0.27s;
+            opacity: 0;
+        }
+        .lab-content.open {
+            max-height: 500px;
+            opacity: 1;
         }
 
         ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         li {
-            margin: 15px 0;
-            padding: 15px;
-            background-color: #252525;
-            border-left: 4px solid #557799;
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
+            margin: 10px 0;
+            padding: 14px 16px;
+            background: #171922;
+            border-radius: 7px;
+            border-left: 3px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            transition: background 0.2s;
         }
 
         li:hover {
-            background-color: #2e3548;
+            background: #111420;
+            border-left: 3px solid var(--primary);
         }
 
         a {
             text-decoration: none;
-            color: #88bfff;
+            color: var(--accent);
             font-weight: 600;
-            font-size: 1.05em;
-            display: inline-block;
-            margin-bottom: 4px;
+            font-size: 1em;
+            border-radius: 100px;
+            padding: 5px 12px;
+            transition: color 0.16s, background 0.16s;
+            margin-right: 4px;
+            background: transparent;
         }
 
         a:hover {
-            color: #aad4ff;
-            text-decoration: underline;
+            color: #fff;
+            background: var(--primary);
         }
 
         .description {
-            color: #888888;
-            font-size: 0.9em;
-            margin-top: 3px;
+            color: #6b7498;
+            font-size: 0.91em;
+            margin-top: 2px;
             font-style: italic;
+            flex-basis: 100%;
+            margin-left: 1px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Лабораторные работы по Web-программированию</h1>
-        <h2>Лабораторная работа №1</h2>
-        <ul>
-            <li>
-                <a href="lab1/users.php">users.php</a>
-                <div class="description">Реализация класса пользователи</div>
-                <a href="lab1/plantuml.html">PlantUML страница</a>
-                <div class="description">Страница для работы с PlantUML диаграммами</div>
-            </li>
-        </ul>
-        <h2>Лабораторная работа №2</h2>
-        <ul>
-            <li>
-                <a href="">В процессе</a>
-                <div class="description"></div>
-                <a href="lab2/plant2.html">PlantUML страница</a>
-                <div class="description">Страница для работы с PlantUML диаграммами</div>
-            </li>
-        </ul>
-        <h2>Лабораторная работа №3</h2>
-        <ul>
-            <li>
-                <a href="lab3/news/news.php">news.php</a>
-                <div class="description">Реализация класса новостей</div>
-                <a href="lab3/news/plant.html">PlantUML страница</a>
-                <div class="description">Страница для работы с PlantUML диаграммами</div>
-            </li>
-        </ul>
-        <h2>Лабораторная работа №4</h2>
-        <ul>
-            <li>
-                <a href="lab4/NumbersSquared.php">NumbersSquared.php</a>
-                <div class="description">Реализация класса</div>
-                <a href="lab4/news/news.php">news.php + IteratorAggregate</a>
-                <div class="description">Реализация классов</div>
-                <a href="lab4/plant.html">PlantUML страница</a>
-                <div class="description">Страница для работы с PlantUML диаграммами</div>
-            </li>
-        </ul>
+
+        <div>
+            <div class="lab-header" onclick="toggleLab(1)">
+                Лабораторная работа №1
+                <span class="arrow">&#9654;</span>
+            </div>
+            <div class="lab-content" id="lab1">
+                <ul>
+                    <li>
+                        <a href="lab1/users.php">users.php</a>
+                        <div class="description">Реализация класса пользователи</div>
+                        <a href="lab1/plantuml.html">PlantUML страница</a>
+                        <div class="description">Страница для работы с PlantUML диаграммами</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <div class="lab-header" onclick="toggleLab(2)">
+                Лабораторная работа №2
+                <span class="arrow">&#9654;</span>
+            </div>
+            <div class="lab-content" id="lab2">
+                <ul>
+                    <li>
+                        <a href="">В процессе</a>
+                        <div class="description"></div>
+                        <a href="lab2/plant2.html">PlantUML страница</a>
+                        <div class="description">Страница для работы с PlantUML диаграммами</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <div class="lab-header" onclick="toggleLab(3)">
+                Лабораторная работа №3
+                <span class="arrow">&#9654;</span>
+            </div>
+            <div class="lab-content" id="lab3">
+                <ul>
+                    <li>
+                        <a href="lab3/news/news.php">news.php</a>
+                        <div class="description">Реализация класса новостей</div>
+                        <a href="lab3/news/plant.html">PlantUML страница</a>
+                        <div class="description">Страница для работы с PlantUML диаграммами</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <div class="lab-header" onclick="toggleLab(4)">
+                Лабораторная работа №4
+                <span class="arrow">&#9654;</span>
+            </div>
+            <div class="lab-content" id="lab4">
+                <ul>
+                    <li>
+                        <a href="lab4/NumbersSquared.php">NumbersSquared.php</a>
+                        <div class="description">Реализация класса</div>
+                        <a href="lab4/news/news.php">news.php + IteratorAggregate</a>
+                        <div class="description">Реализация классов</div>
+                        <a href="lab4/plant.html">PlantUML страница</a>
+                        <div class="description">Страница для работы с PlantUML диаграммами</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <script>
+        function toggleLab(num) {
+            const block = document.getElementById("lab" + num);
+            const header = block.previousElementSibling;
+            const arrow = header.querySelector('.arrow');
+            const isOpen = block.classList.contains("open");
+            document.querySelectorAll('.lab-content').forEach(div => { 
+                div.classList.remove('open'); 
+            });
+            document.querySelectorAll('.lab-header').forEach(h => { 
+                h.classList.remove('expanded');
+            });
+            if (!isOpen) {
+                block.classList.add('open');
+                header.classList.add('expanded');
+            }
+        }
+    </script>
 </body>
 </html>
