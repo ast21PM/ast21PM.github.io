@@ -81,7 +81,7 @@
             opacity: 0;
         }
         .lab-content.open {
-            max-height: 500px;
+            max-height: 500px; /* Максимальная высота для раскрытия */
             opacity: 1;
         }
 
@@ -215,17 +215,8 @@
             const block = document.getElementById("lab" + num);
             const header = block.previousElementSibling;
             const arrow = header.querySelector('.arrow');
-            const isOpen = block.classList.contains("open");
-            document.querySelectorAll('.lab-content').forEach(div => { 
-                div.classList.remove('open'); 
-            });
-            document.querySelectorAll('.lab-header').forEach(h => { 
-                h.classList.remove('expanded');
-            });
-            if (!isOpen) {
-                block.classList.add('open');
-                header.classList.add('expanded');
-            }
+            block.classList.toggle('open');
+            header.classList.toggle('expanded');
         }
     </script>
 </body>
