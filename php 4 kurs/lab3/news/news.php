@@ -5,16 +5,13 @@ error_reporting(E_ALL);
 
 require_once 'NewsDB.class.php';
 
-// Создаем обычный экземпляр
 $news = new NewsDB();
 $errMsg = "";
 
-// Обработка POST запроса (добавление новости)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include 'save_news.inc.php';
 }
 
-// Обработка GET запроса (удаление новости)
 if (isset($_GET['delete'])) {
     include 'delete_news.inc.php';
 }
