@@ -37,10 +37,9 @@ class NumbersSquared implements Iterator
     }
 }
 
-// Пример использования
 $obj = new NumbersSquared(3, 7);
 
 foreach($obj as $num => $square) {
-    echo "Квадрат числа $num = $square\n";
+    echo "Число: $num; Квадрат: $square<br>";
 }
 ?>
