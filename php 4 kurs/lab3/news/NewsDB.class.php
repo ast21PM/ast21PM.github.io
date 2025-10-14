@@ -84,25 +84,30 @@ class NewsDB implements INewsDB {
     public function getNews() {
         try {
             $query = "
-                SELECT m.id, m.title, c.name as category, m.description, m.source, m.datetime
-                FROM msgs m
-                LEFT JOIN category c ON m.category = c.id
-                ORDER BY m.datetime DESC
+                SELECT msgs.id as id, title, category.name as category, description, source, datetime
+                FROM msgs, category
+                WHERE category.id = msgs.category
+                ORDER BY msgs.id DESC
             ";
-
+    
             $result = $this->_db->query($query);
+            
+            if (!$result) {
+                return false;
+            }
+            
             $news = [];
-
             while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                 $news[] = $row;
             }
-
+    
             return $news;
-
+    
         } catch (Exception $e) {
-            return [];
+            return false;
         }
     }
+    
 
     public function deleteNews($id) {
         try {
@@ -117,7 +122,5 @@ class NewsDB implements INewsDB {
         }
     }
 }
-
-$news = new NewsDB();
 
 ?>
