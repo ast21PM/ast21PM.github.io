@@ -23,9 +23,20 @@
             padding: 0;
             background: var(--bg-main);
             color: #b7c3df;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+
+        .draggable-container {
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            cursor: grab;
+            transition: box-shadow 0.22s;
+        }
+        .draggable-container.dragging {
+            box-shadow: 0 8px 38px 0 rgba(88,166,255,0.21), 0 0 10px #338cff;
+            cursor: grabbing;
         }
 
         .container {
@@ -36,6 +47,7 @@
             width: 100%;
             border: 1.5px solid var(--border);
             box-shadow: 0 1px 4px rgba(40, 55, 82, 0.11);
+            user-select: none;
         }
 
         h1 {
@@ -45,6 +57,7 @@
             font-weight: 700;
             font-size: 2em;
             letter-spacing: 0.2px;
+            cursor: grab; 
         }
 
         .lab-header {
@@ -81,7 +94,7 @@
             opacity: 0;
         }
         .lab-content.open {
-            max-height: 500px; /* Максимальная высота для раскрытия */
+            max-height: 500px;
             opacity: 1;
         }
 
@@ -137,8 +150,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Лабораторные работы по Web-программированию</h1>
+    <div class="draggable-container" id="dragContainer">
+      <div class="container" ondblclick="returnToCenter()">
+        <h1 id="dragHandle">Лабораторные работы по Web-программированию</h1>
 
         <div>
             <div class="lab-header" onclick="toggleLab(1)">
@@ -209,14 +223,51 @@
                 </ul>
             </div>
         </div>
+      </div>
     </div>
     <script>
         function toggleLab(num) {
             const block = document.getElementById("lab" + num);
             const header = block.previousElementSibling;
-            const arrow = header.querySelector('.arrow');
             block.classList.toggle('open');
             header.classList.toggle('expanded');
+        }
+
+        let dragContainer = document.getElementById("dragContainer");
+        let dragHandle = document.getElementById("dragHandle");
+        let offsetX, offsetY, startX, startY, dragging = false;
+
+        dragHandle.onmousedown = function(e) {
+            dragging = true;
+            dragContainer.classList.add('dragging');
+            startX = e.clientX;
+            startY = e.clientY;
+
+            const rect = dragContainer.getBoundingClientRect();
+            offsetX = startX - rect.left;
+            offsetY = startY - rect.top;
+
+            document.onmousemove = function(e) {
+                if (!dragging) return;
+                let left = e.clientX - offsetX;
+                let top = e.clientY - offsetY;
+                dragContainer.style.left = left + "px";
+                dragContainer.style.top = top + "px";
+                dragContainer.style.transform = "none";
+            };
+
+            document.onmouseup = function() {
+                dragging = false;
+                dragContainer.classList.remove('dragging');
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+
+        function returnToCenter() {
+            dragContainer.style.top = "50%";
+            dragContainer.style.left = "50%";
+            dragContainer.style.transform = "translate(-50%, -50%)";
         }
     </script>
 </body>
