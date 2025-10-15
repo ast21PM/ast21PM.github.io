@@ -12,6 +12,8 @@ class Users extends Collection
             new User('paulie.gualtieri@example.com', 'password', 'Paulie', 'Gualtieri'),
             new User('silvio.dante@example.com', 'password', 'Silvio', 'Dante'),
         ];
+        $this->users = $users;
         parent::__construct($users);
     }
 }
+
