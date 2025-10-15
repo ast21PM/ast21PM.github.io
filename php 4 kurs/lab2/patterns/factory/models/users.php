@@ -1,6 +1,7 @@
 <?php
 namespace Factory\Models;
 
+
 class Users extends Collection
 {
     public function __construct(public ?array $users = null)
