@@ -5,10 +5,9 @@ class NewsDB implements INewsDB {
 
     const DB_NAME = 'news.db';
 
-    // Константы для RSS
     const RSS_NAME = 'rss.xml';
     const RSS_TITLE = 'Последние новости';
-    const RSS_LINK = 'http://fxxxxxxx.xsph.ru/news/news.php'; // измените на ваш реальный URL
+    const RSS_LINK = 'http://f1172313.xsph.ru/lab5/news/news.php';
 
     private $_db;
 
@@ -82,7 +81,7 @@ class NewsDB implements INewsDB {
 
             $result = $stmt->execute();
             if ($result !== false) {
-                $this->createRss();  // Создаем или обновляем RSS после добавления новости
+                $this->createRss(); 
                 return true;
             } else {
                 return false;
@@ -150,7 +149,6 @@ class NewsDB implements INewsDB {
         }
     }
 
-    // Метод создания RSS
     public function createRss() {
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dom->formatOutput = true;
