@@ -12,23 +12,14 @@ class NewsDB implements INewsDB {
     public function __construct() {
         $db_file = self::DB_NAME;
 
-        if (!file_exists($db_file)) {
-            die("Ошибка: файл news.db не найден. Создайте пустой файл news.db!");
-        }
-        if (filesize($db_file) === 0) {
-            die("Ошибка: файл news.db существует, но его размер 0 байт. Возможна ошибка создания или инициализации базы.");
-        }
+        if (!file_exists($db_file) || filesize($db_file) === 0) {
+            try {
+                $dsn = 'sqlite:' . $db_file;
+                $this->_db = new PDO($dsn);
+                $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        try {
-            $dsn = 'sqlite:' . $db_file;
-            $this->_db = new PDO($dsn);
-            $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $categoryTable = $this->_db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='category'")->fetch(PDO::FETCH_ASSOC);
-            $msgsTable = $this->_db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='msgs'")->fetch(PDO::FETCH_ASSOC);
-
-            if (!$categoryTable || !$msgsTable) {
                 $this->_db->beginTransaction();
+                
                 try {
                     $this->_db->exec("
                         CREATE TABLE IF NOT EXISTS msgs(
@@ -46,21 +37,31 @@ class NewsDB implements INewsDB {
                             name TEXT
                         )");
 
-                        $this->_db->exec("INSERT INTO category(id name) VALUES (1, 'Политика')");
-                        $this->_db->exec("INSERT INTO category(id, name) VALUES (2, 'Культура')");
-                        $this->_db->exec("INSERT INTO category(id, name) VALUES (3, 'Спорт')");
-                        
+                    $this->_db->exec("INSERT INTO category(id, name) VALUES (1, 'Политика')");
+                    $this->_db->exec("INSERT INTO category(id, name) VALUES (2, 'Культура')");
+                    $this->_db->exec("INSERT INTO category(id, name) VALUES (3, 'Спорт')");
 
                     $this->_db->commit();
+                    
                 } catch (PDOException $e) {
                     if ($this->_db->inTransaction()) {
                         $this->_db->rollBack();
                     }
-                    die("Ошибка создания/инициализации базы: " . $e->getMessage() . " Код: " . $e->getCode());
+                    die("Ошибка: невозможно создать базу данных. " . $e->getMessage() . " (Код: " . $e->getCode() . ")");
                 }
+                
+            } catch (PDOException $e) {
+                die("Ошибка: невозможно создать базу данных. " . $e->getMessage() . " (Код: " . $e->getCode() . ")");
             }
-        } catch (PDOException $e) {
-            die("Ошибка подключения к базе данных: " . $e->getMessage() . " Код: " . $e->getCode());
+        } else {
+            try {
+                $dsn = 'sqlite:' . $db_file;
+                $this->_db = new PDO($dsn);
+                $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+            } catch (PDOException $e) {
+                die("Ошибка подключения к базе данных: " . $e->getMessage() . " (Код: " . $e->getCode() . ")");
+            }
         }
     }
 
@@ -70,17 +71,21 @@ class NewsDB implements INewsDB {
 
     public function saveNews($title, $category, $description, $source) {
         try {
-            $sql = "INSERT INTO msgs (title, category, description, source, datetime) 
-                    VALUES (:title, :category, :description, :source, :datetime)";
-            $stmt = $this->_db->prepare($sql);
-            $stmt->bindValue(':title', $title, PDO::PARAM_STR);
-            $stmt->bindValue(':category', $category, PDO::PARAM_INT);
-            $stmt->bindValue(':description', $description, PDO::PARAM_STR);
-            $stmt->bindValue(':source', $source, PDO::PARAM_STR);
-            $stmt->bindValue(':datetime', time(), PDO::PARAM_INT);
+            $quotedTitle = $this->_db->quote($title);
+            $quotedCategory = $this->_db->quote($category);
+            $quotedDescription = $this->_db->quote($description);
+            $quotedSource = $this->_db->quote($source);
+            $quotedDatetime = $this->_db->quote(time());
 
-            return $stmt->execute();
+            $sql = "INSERT INTO msgs (title, category, description, source, datetime) 
+                    VALUES ($quotedTitle, $quotedCategory, $quotedDescription, $quotedSource, $quotedDatetime)";
+            
+            $result = $this->_db->exec($sql);
+            
+            return $result !== false;
+            
         } catch (PDOException $e) {
+            error_log("Ошибка saveNews: " . $e->getMessage() . " (Код: " . $e->getCode() . ")");
             return false;
         }
     }
@@ -93,35 +98,54 @@ class NewsDB implements INewsDB {
                 LEFT JOIN category ON category.id = msgs.category
                 ORDER BY msgs.id DESC
             ";
+            
             $result = $this->_db->query($query);
 
-            if (!$result) return false;
+            if (!$result) {
+                $errorInfo = $this->_db->errorInfo();
+                error_log("Ошибка getNews: " . $errorInfo[2] . " (Код: " . $this->_db->errorCode() . ")");
+                return false;
+            }
 
             $news = [];
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $news[] = $row;
             }
+            
             return $news;
+            
         } catch (PDOException $e) {
+            error_log("Ошибка getNews: " . $e->getMessage() . " (Код: " . $e->getCode() . ")");
             return false;
         }
     }
 
     public function deleteNews($id) {
         try {
-            $countQuery = "SELECT COUNT(*) as count FROM msgs WHERE id = " . $this->_db->quote($id);
-            $countResult = $this->_db->query($countQuery)->fetch(PDO::FETCH_ASSOC);
+            $quotedId = $this->_db->quote($id);
+            
+            $countQuery = "SELECT COUNT(*) as count FROM msgs WHERE id = $quotedId";
+            $countResult = $this->_db->query($countQuery);
+            
+            if (!$countResult) {
+                $errorInfo = $this->_db->errorInfo();
+                error_log("Ошибка deleteNews (проверка): " . $errorInfo[2] . " (Код: " . $this->_db->errorCode() . ")");
+                return false;
+            }
+            
+            $countRow = $countResult->fetch(PDO::FETCH_ASSOC);
 
-            if ($countResult['count'] == 0) {
+            if ($countRow['count'] == 0) {
                 return false;
             }
 
-            $stmt = $this->_db->prepare("DELETE FROM msgs WHERE id = :id");
-            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
+            $deleteQuery = "DELETE FROM msgs WHERE id = $quotedId";
+            $result = $this->_db->exec($deleteQuery);
 
-            return $stmt->rowCount() === 1;
+            return $result === 1;
+            
         } catch (PDOException $e) {
+            error_log("Ошибка deleteNews: " . $e->getMessage() . " (Код: " . $e->getCode() . ")");
             return false;
         }
     }
