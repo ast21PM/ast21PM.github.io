@@ -23,10 +23,11 @@
             padding: 0;
             background: var(--bg-main);
             color: #b7c3df;
+            overflow-x: hidden;
         }
 
         .draggable-container {
-            position: fixed; 
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -41,23 +42,49 @@
 
         .container {
             background: var(--bg-card);
-            padding: 34px 24px;
+            padding: 17px 12px;
             border-radius: var(--radius);
             max-width: 820px;
             width: 100%;
             border: 1.5px solid var(--border);
             box-shadow: 0 1px 4px rgba(40, 55, 82, 0.11);
             user-select: none;
+            max-height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--bg-card);
+        }
+
+        .container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: var(--bg-card);
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
         }
 
         h1 {
             text-align: center;
             color: var(--primary);
-            margin-bottom: 34px;
+            margin: 0 0 17px 0;
             font-weight: 700;
             font-size: 2em;
             letter-spacing: 0.2px;
-            cursor: grab; 
+            cursor: grab;
+            position: sticky;
+            top: 0;
+            background: var(--bg-card);
+            padding: 5px 0;
+            z-index: 10;
         }
 
         .lab-header {
@@ -65,7 +92,7 @@
             border-bottom: 1px solid #27374d;
             padding-bottom: 5px;
             margin: 0;
-            margin-top: 32px;
+            margin-top: 16px;
             font-weight: 600;
             font-size: 1.13em;
             cursor: pointer;
@@ -94,7 +121,7 @@
             opacity: 0;
         }
         .lab-content.open {
-            max-height: 500px;
+            max-height: 1000px;
             opacity: 1;
         }
 
@@ -105,8 +132,8 @@
         }
 
         li {
-            margin: 10px 0;
-            padding: 14px 16px;
+            margin: 5px 0;
+            padding: 7px 8px;
             background: #171922;
             border-radius: 7px;
             border-left: 3px solid var(--border);
@@ -147,6 +174,19 @@
             flex-basis: 100%;
             margin-left: 1px;
         }
+
+        .route-group {
+            margin: 4px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .route-group .description {
+            flex-basis: 100%;
+            margin: 4px 0 0 0;
+        }
     </style>
 </head>
 <body>
@@ -157,7 +197,7 @@
         <div>
             <div class="lab-header" onclick="toggleLab(1)">
                 Лабораторная работа №1
-                <span class="arrow">&#9654;</span>
+                <span class="arrow">▶</span>
             </div>
             <div class="lab-content" id="lab1">
                 <ul>
@@ -174,7 +214,7 @@
         <div>
             <div class="lab-header" onclick="toggleLab(2)">
                 Лабораторная работа №2
-                <span class="arrow">&#9654;</span>
+                <span class="arrow">▶</span>
             </div>
             <div class="lab-content" id="lab2">
                 <ul>
@@ -195,7 +235,7 @@
         <div>
             <div class="lab-header" onclick="toggleLab(3)">
                 Лабораторная работа №3
-                <span class="arrow">&#9654;</span>
+                <span class="arrow">▶</span>
             </div>
             <div class="lab-content" id="lab3">
                 <ul>
@@ -212,7 +252,7 @@
         <div>
             <div class="lab-header" onclick="toggleLab(4)">
                 Лабораторная работа №4
-                <span class="arrow">&#9654;</span>
+                <span class="arrow">▶</span>
             </div>
             <div class="lab-content" id="lab4">
                 <ul>
@@ -230,7 +270,7 @@
             </div>
             <div class="lab-header" onclick="toggleLab(5)">
                 Лабораторная работа №5
-                <span class="arrow">&#9654;</span>
+                <span class="arrow">▶</span>
             </div>
             <div class="lab-content" id="lab5">
                 <ul>
@@ -244,7 +284,7 @@
             </div>
             <div class="lab-header" onclick="toggleLab(6)">
                 Лабораторная работа №6
-                <span class="arrow">&#9654;</span>
+                <span class="arrow">▶</span>
             </div>
             <div class="lab-content" id="lab6">
                 <ul>
@@ -262,7 +302,7 @@
             </div>
             <div class="lab-header" onclick="toggleLab(7)">
                 Лабораторная работа №7
-                <span class="arrow">&#9654;</span>
+                <span class="arrow">▶</span>
             </div>
             <div class="lab-content" id="lab7">
                 <ul>
@@ -271,6 +311,95 @@
                         <div class="description">Созданное изображение</div>
                         <a href="lab7/registration.php">registration.php</a>
                         <div class="description">Html форма</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <div class="lab-header" onclick="toggleLab(8)">
+                Лабораторная работа №8 — MVC Роутинг
+                <span class="arrow">▶</span>
+            </div>
+            <div class="lab-content" id="lab8">
+                <ul>
+                    <li>
+                        <div class="route-group">
+                            <a href="lab8/hello/">hello</a>
+                            <div class="description">Hello контроллер, index действие</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/my-page1/">my-page1</a>
+                            <div class="description">Page контроллер, show1 действие</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/my-page2/">my-page2</a>
+                            <div class="description">Page контроллер, show2 действие</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/page/5/">page/5</a>
+                            <a href="lab8/page/10/">page/10</a>
+                            <a href="lab8/page/25/">page/25</a>
+                            <div class="description">Page контроллер, show действие с параметром :id</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/page/test/">page/test</a>
+                            <div class="description">Page контроллер, test действие</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/test/act1/">test/act1</a>
+                            <a href="lab8/test/act2/">test/act2</a>
+                            <a href="lab8/test/act3/">test/act3</a>
+                            <div class="description">Test контроллер, actions: act1, act2, act3</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/nums/5/10/15/">nums/5/10/15</a>
+                            <a href="lab8/nums/100/200/300/">nums/100/200/300</a>
+                            <div class="description">Num контроллер, sum действие (сумма трёх чисел :n1/:n2/:n3)</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/user/all/">user/all</a>
+                            <div class="description">User контроллер, all действие</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/user/first/5/">user/first/5</a>
+                            <a href="lab8/user/first/10/">user/first/10</a>
+                            <div class="description">User контроллер, first действие (первые :n пользователей)</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/user/1/">user/1</a>
+                            <a href="lab8/user/5/">user/5</a>
+                            <a href="lab8/user/42/">user/42</a>
+                            <div class="description">User контроллер, show действие (пользователь по :id)</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/user/1/email/">user/1/email</a>
+                            <a href="lab8/user/5/name/">user/5/name</a>
+                            <a href="lab8/user/3/age/">user/3/age</a>
+                            <div class="description">User контроллер, info действие (поле :key пользователя :id)</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/products/">products</a>
+                            <div class="description">Product контроллер, all действие</div>
+                        </div>
+
+                        <div class="route-group">
+                            <a href="lab8/product/1/">product/1</a>
+                            <a href="lab8/product/25/">product/25</a>
+                            <a href="lab8/product/100/">product/100</a>
+                            <div class="description">Product контроллер, one действие (продукт по :id)</div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -287,6 +416,7 @@
 
         let dragContainer = document.getElementById("dragContainer");
         let dragHandle = document.getElementById("dragHandle");
+        let container = document.querySelector(".container");
         let offsetX, offsetY, startX, startY, dragging = false;
 
         dragHandle.onmousedown = function(e) {
@@ -321,6 +451,12 @@
             dragContainer.style.left = "50%";
             dragContainer.style.transform = "translate(-50%, -50%)";
         }
+
+        container.addEventListener('wheel', function(e) {
+            if (container.scrollHeight > container.clientHeight) {
+                e.stopPropagation();
+            }
+        }, { passive: true });
     </script>
 </body>
 </html>

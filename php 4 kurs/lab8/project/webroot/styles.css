@@ -1,0 +1,108 @@
+/* Основные стили для сайта */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f4f4f4;
+}
+
+/* Стили для header */
+header {
+	background-color: #2c3e50;
+	color: white;
+	padding: 20px;
+	text-align: center;
+}
+
+/* Стили для container */
+.container {
+	display: flex;
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 0 20px;
+	gap: 20px;
+}
+
+/* Стили для сайдбаров */
+.sidebar {
+	width: 200px;
+	background-color: #ecf0f1;
+	padding: 20px;
+	border-radius: 5px;
+	min-height: 400px;
+}
+
+.sidebar.left {
+	order: 1;
+}
+
+.sidebar.right {
+	order: 3;
+}
+
+/* Стили для main */
+main {
+	flex: 1;
+	background-color: white;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	order: 2;
+}
+
+/* Стили для footer */
+footer {
+	background-color: #34495e;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+/* Стили для таблиц */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 20px 0;
+}
+
+table th {
+	background-color: #3498db;
+	color: white;
+	padding: 10px;
+	text-align: left;
+}
+
+table td {
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+	background-color: #f5f5f5;
+}
+
+/* Стили для заголовков */
+h1 {
+	color: #2c3e50;
+	margin-bottom: 15px;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+/* Стили для изображений */
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+	margin: 10px 0;
+}
+

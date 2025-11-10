@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /lab8/
+
+RewriteCond %{REQUEST_URI} !^/lab8/project/webroot/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
