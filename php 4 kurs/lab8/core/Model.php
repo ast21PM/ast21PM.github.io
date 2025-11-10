@@ -8,7 +8,6 @@
 	public function __construct()
 	{
 		if (!self::$link) {
-			// Подавляем вывод ошибок и обрабатываем их вручную
 			$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 			if (!$link) {
 				$error = mysqli_connect_error();

@@ -1,4 +1,3 @@
--- SQL скрипт для создания таблицы page и заполнения её данными
 
 CREATE TABLE IF NOT EXISTS `page` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -7,7 +6,6 @@ CREATE TABLE IF NOT EXISTS `page` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Заполнение таблицы тестовыми данными
 INSERT INTO `page` (`id`, `title`, `text`) VALUES
 (1, 'Главная страница', 'Добро пожаловать на главную страницу сайта!'),
 (2, 'О нас', 'Информация о нашей компании и команде.'),

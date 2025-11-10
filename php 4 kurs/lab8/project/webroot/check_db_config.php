@@ -1,6 +1,4 @@
 <?php
-// Файл для проверки и настройки подключения к БД
-// Откройте: http://ваш-домен/lab8/project/webroot/check_db_config.php
 
 require_once dirname(__FILE__) . '/../config/connection.php';
 

@@ -1,4 +1,3 @@
--- SQL скрипт для создания таблицы products и заполнения её данными
 
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -9,7 +8,6 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Заполнение таблицы тестовыми данными
 INSERT INTO `products` (`id`, `name`, `price`, `quantity`, `description`) VALUES
 (1, 'Ноутбук', 50000.00, 10, 'Мощный ноутбук для работы и развлечений. Процессор Intel Core i7, 16GB RAM, SSD 512GB.'),
 (2, 'Смартфон', 30000.00, 25, 'Современный смартфон с отличной камерой и быстрой зарядкой. Экран 6.5 дюймов, 128GB памяти.'),
