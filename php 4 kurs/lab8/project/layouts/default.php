@@ -7,7 +7,7 @@
 	</head>
 	<body>
 	<header>
-		<img src="<?= BASE_PATH ?>/project/webroot/logo.svg" alt="Логотип" style="height: 50px; vertical-align: middle; margin-right: 10px;">
+		<img src="<?= BASE_PATH ?>/project/webroot/logo.jpg" alt="Логотип" style="height: 50px; vertical-align: middle; margin-right: 10px;">
 		хедер сайта
 	</header>
 		<div class="container">
